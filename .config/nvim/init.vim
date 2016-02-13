@@ -62,7 +62,8 @@ Plug 'tacahiroy/ctrlp-funky'            "Ctags-less fuzzy finding of buffer func
 Plug 'mhinz/vim-signify'                "Vim differences in gutter
 Plug 'tpope/vim-surround'               "Easy surrounding of text
 Plug 'tpope/vim-fugitive'               "Git wrapper for vim
-Plug 'shawncplus/phpcomplete.vim'
+Plug 'shawncplus/phpcomplete.vim'       "Better php autocompletion
+Plug 'jiangmiao/auto-pairs'             "Auto match brackets, quotes, etc.
 
 
 call plug#end()
