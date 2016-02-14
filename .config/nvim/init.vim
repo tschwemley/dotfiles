@@ -81,6 +81,8 @@ map <leader>c <c-_><c-_>
 
 " YouCompleteMe settings
 let g:ycm_seed_identifiers_with_syntax = 1 
+let g:ycm_key_list_select_completion = ['<S-TAB>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-S-TAB>', '<Up>']
 
 
 " Airline settings
