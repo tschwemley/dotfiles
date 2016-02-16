@@ -10,10 +10,11 @@ set shiftwidth=4	"Number of spaces to use when tabbing
 set shiftround		"Use multple of shiftwidth when indenting with < >
 set copyindent		"Copy the previous indentation on autoindention
 set showcmd         "Show partial command in statusline
-set tags=tags;
+set noswapfile      "No swap files
+set tags=tags;      "Tags file name
 set exrc            "Allow local vimrc files to be declared
-set completeopt=menu
-set timeoutlen=300
+set cot=menu        "Use menu instead of buffer for complete options menu
+set timeoutlen=300  "Delay before commands
 
 " File extension specific settings
 autocmd Filetype html setlocal ts=2 sw=2 expandtab
@@ -36,14 +37,16 @@ nmap <leader>bf :bf<cr>
 nmap <leader>bl :bl<cr>
 imap j<space>j <esc><esc>
 imap j<space>j <esc>
-nmap <c-j> <pagedown>
-nmap <c-k> <pageup>
+nnoremap <c-j> <pagedown>
+nnoremap <c-k> <pageup>
 
 
 " Vimrc management
-nmap <leader>ev :e ~/.config/nvim/init.vim<cr>
-nmap <leader>sov :so ~/.config/nvim/init.vim<cr>
+nnoremap <leader>ev :e ~/.config/nvim/init.vim<cr>
+nnoremap <leader>sov :so ~/.config/nvim/init.vim<cr>
 
+" Search project
+nnoremap <leader>sr :terminal ag -R 
 
 " Plugin management
 nmap <leader>pi :PlugInstall<cr>
@@ -64,6 +67,11 @@ Plug 'tpope/vim-surround'               "Easy surrounding of text
 Plug 'tpope/vim-fugitive'               "Git wrapper for vim
 Plug 'shawncplus/phpcomplete.vim'       "Better php autocompletion
 Plug 'jiangmiao/auto-pairs'             "Auto match brackets, quotes, etc.
+Plug 'tobyS/pdv'
+Plug 'tobyS/vmustache'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+" Plug 'scrooloose/syntastic'
 
 
 call plug#end()
@@ -82,7 +90,7 @@ map <leader>c <c-_><c-_>
 " YouCompleteMe settings
 let g:ycm_seed_identifiers_with_syntax = 1 
 let g:ycm_key_list_select_completion = ['<S-TAB>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<C-S-TAB>', '<Up>']
+let g:ycm_key_list_previous_completion = ['<S-q>', '<Up>']
 
 
 " Airline settings
@@ -114,6 +122,11 @@ let g:ctrlp_funky_syntax_highlight = 1
 nnoremap <leader>gs :Gstatus<cr>
 nnoremap <leader>df :Gdiff<cr>
 nnoremap <leader>gb :Gblame<cr>
+
+
+" Pdv settings
+let g:pdv_template_dir = $HOME ."/.vim/plug/pdv/templates/"
+nnoremap <leader>d :call pdv#DocumentWithSnip()<CR>
 
 
 set secure
