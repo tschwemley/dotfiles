@@ -23,20 +23,22 @@ autocmd Filetype javascript setlocal ts=2 sw=2 expandtab
 autocmd Filetype jade setlocal ts=2 sw=2 expandtab
 autocmd Filetype sass setlocal ts=2 sw=2 expandtab
 autocmd Filetype scss setlocal ts=2 sw=2 expandtab
+autocmd Filetype sql setlocal ts=2 sw=2 expandtab
 
 
 " Navigation and file management keymappings
 let mapleader=","
-nmap <leader>w :w!<cr>
-nmap <leader>wq :wq!<cr>
-nmap <leader>q :q!<cr>
-nmap <leader>bd :bd<cr>
-nmap <leader>bn :bn<cr>
-nmap <leader>bp :bp<cr>
-nmap <leader>bf :bf<cr>
-nmap <leader>bl :bl<cr>
-imap j<space>j <esc><esc>
-imap j<space>j <esc>
+nnoremap <leader>w :w!<cr>
+nnoremap <leader>wq :wq!<cr>
+nnoremap <leader>q :q!<cr>
+nnoremap <leader>bd :bd<cr>
+nnoremap <leader>bn :bn<cr>
+nnoremap <leader>bp :bp<cr>
+nnoremap <leader>bf :bf<cr>
+nnoremap <leader>bl :bl<cr>
+nnoremap <leader>y "+y<cr>
+inoremap j<space>j <esc><esc>
+inoremap j<space>j <esc>
 nnoremap <c-j> <pagedown>
 nnoremap <c-k> <pageup>
 
