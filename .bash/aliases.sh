@@ -34,10 +34,7 @@ alias symf-go-mobile="cache-clear-dev; sudo php app/console server:run `python -
 # Git aliases
 alias gs="git status"
 alias gcob="git checkout -b"
-alias gpu="git push"
-alias gpr="git pull --rebase -p"
 alias gl="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
-alias gm="git merge --squash"
 alias gmt="git mergetool"
 alias ganw="git diff -w --no-color | git apply --cached --ignore-whitespace"
 
@@ -45,7 +42,7 @@ alias ganw="git diff -w --no-color | git apply --cached --ignore-whitespace"
 alias vim="nvim"
 
 # PHP ctags (for php patched ctags: https://github.com/shawncplus/phpcomplete.vim/wiki/Patched-ctags"
-alias php-ctags="ctags -R --fields=+aimSl --languages=php"
+alias php-ctags="ctags -R --fields=+aimSl --languages=PHP,JavaScript --exclude=@.ctagsignore ."
 
 # Tmux Alias (for 256 color term)
 alias tmux="tmux -2"
