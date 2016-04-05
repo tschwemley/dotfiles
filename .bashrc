@@ -84,8 +84,8 @@ if ! shopt -oq posix; then
 fi
 
 # Alias imports
-if [ -f /home/tyler/.bash/aliases.sh ]; then
-    . /home/tyler/.bash/aliases.sh
+if [ -f /home/$USER/.bash/aliases.sh ]; then
+    . /home/$USER/.bash/aliases.sh
 fi
 
 export TERM="xterm-256color"

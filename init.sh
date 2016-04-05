@@ -1,5 +1,34 @@
 #!/bin/bash
-ln -s .bash /home/$USER/.bash
-ln -s .config/nvim/init.vim /home/$USER/.config/nvim/init.vim
-ln -s .bashrc /home/$USER/.bashrc
-ln -s .tmux.conf /home/$USER/.tmux.conf
+
+#Get path to script itself
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}"  )" && pwd  )"
+
+# Clean any pre-existing files and add necessary dirs
+if [ ! -d .config ] ; then
+    mkdir .config
+fi
+
+if [ ! -d .config/nvim ] ; then
+    mkdir .config/nvim
+fi
+
+if [ -e /home/$USER/.bashrc ] ; then
+    rm /home/$USER/.bashrc
+fi
+
+if [ -e /home/$USER/.bash ] ; then
+    rm -r /home/$USER/.bash
+fi
+
+if [ -e /home/$USER/.tmux.conf ] ; then
+    rm /home/$USER/.tmux.conf
+fi
+
+if [ -e /home/$USER/.config/nvim/init.vim ] ; then
+    rm /home/$USER/.config/nvim/init.vim
+fi
+
+ln -s $DIR/.bash /home/$USER/.bash
+ln -s $DIR/.tmux.conf /home/$USER/.tmux.conf
+ln -s $DIR/.bashrc /home/$USER/.bashrc
+ln -s $DIR/.config/nvim/init.vim /home/$USER/.config/nvim/init.vim
