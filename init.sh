@@ -36,3 +36,5 @@ ln -s $DIR/.config/nvim/init.vim /home/$USER/.config/nvim/init.vim
 # Install nvim plugin manager
 curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+source /home/$USER/.bashrc
