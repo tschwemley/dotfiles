@@ -32,3 +32,7 @@ ln -s $DIR/.bash /home/$USER/.bash
 ln -s $DIR/.tmux.conf /home/$USER/.tmux.conf
 ln -s $DIR/.bashrc /home/$USER/.bashrc
 ln -s $DIR/.config/nvim/init.vim /home/$USER/.config/nvim/init.vim
+
+# Install nvim plugin manager
+curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
