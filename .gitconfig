@@ -1,0 +1,11 @@
+[core]
+	autocrlf = input
+[user]
+	name = Tyler Schwemley
+	email = tjschwem@gmail.com
+[push]
+	default = matching
+[alias]
+    co = checkout
+    s = status
+    cm = !git add -A && git commit -m

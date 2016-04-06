@@ -24,6 +24,10 @@ if [ -e /home/$USER/.tmux.conf ] ; then
     rm /home/$USER/.tmux.conf
 fi
 
+if [ -e /home/$USER/.gitconfig ] ; then
+    rm /home/$USER/.tmux.conf
+fi
+
 if [ -e /home/$USER/.config/nvim/init.vim ] ; then
     rm /home/$USER/.config/nvim/init.vim
 fi
@@ -31,6 +35,7 @@ fi
 ln -s $DIR/.bash /home/$USER/.bash
 ln -s $DIR/.tmux.conf /home/$USER/.tmux.conf
 ln -s $DIR/.bashrc /home/$USER/.bashrc
+ln -s $DIR/.gitconfig /home/$USER/.gitconfig
 ln -s $DIR/.config/nvim/init.vim /home/$USER/.config/nvim/init.vim
 
 # Install nvim plugin manager
