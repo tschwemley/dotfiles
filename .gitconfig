@@ -9,3 +9,4 @@
     co = checkout
     s = status
     cm = !git add -A && git commit -m
+    b = branch
