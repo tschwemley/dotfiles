@@ -25,7 +25,7 @@ if [ -e /home/$USER/.tmux.conf ] ; then
 fi
 
 if [ -e /home/$USER/.gitconfig ] ; then
-    rm /home/$USER/.tmux.conf
+    rm /home/$USER/.gitconfig
 fi
 
 if [ -e /home/$USER/.config/nvim/init.vim ] ; then
