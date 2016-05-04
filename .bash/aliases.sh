@@ -46,3 +46,6 @@ alias php-ctags="ctags -R --fields=+aimSl --languages=PHP,JavaScript --exclude=@
 
 # Tmux Alias (for 256 color term)
 alias tmux="tmux -2"
+
+# Resize command line window (https://gist.github.com/tschwemley/f588322204d5bf9c1132975672ed1a06)
+alias resize-win="bash ~/resize-window.sh 1080 1820"
