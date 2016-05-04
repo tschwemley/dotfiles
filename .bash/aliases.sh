@@ -38,6 +38,10 @@ alias gl="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %
 alias gmt="git mergetool"
 alias ganw="git diff -w --no-color | git apply --cached --ignore-whitespace"
 
+# Package management
+alias agi="sudo apt-get install -y"
+alias agr="sudo apt-get remove"
+
 # Use neovim in place of vim
 alias vim="nvim"
 
