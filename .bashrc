@@ -88,5 +88,11 @@ if [ -f /home/$USER/.bash/aliases.sh ]; then
     . /home/$USER/.bash/aliases.sh
 fi
 
+# Autocomplete for apt-get alias
+_apt_install_complete() { 
+    mapfile -t COMPREPLY < <(apt-cache --no-generate pkgnames "$2");
+}
+complete -F _apt_install_complete agi
+
 export TERM="xterm-256color"
 export PATH=$PATH:/usr/local/packer
