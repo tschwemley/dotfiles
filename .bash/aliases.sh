@@ -53,3 +53,5 @@ alias tmux="tmux -2"
 
 # Resize command line window (https://gist.github.com/tschwemley/f588322204d5bf9c1132975672ed1a06)
 alias resize-win="bash ~/resize-window.sh 1080 1820"
+
+alias awscol="aws --profile=collage"
