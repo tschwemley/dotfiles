@@ -15,6 +15,7 @@ set tags=tags;      "Tags file name
 set exrc            "Allow local vimrc files to be declared
 set cot=menu        "Use menu instead of buffer for complete options menu
 set timeoutlen=300  "Delay before commands
+set colorcolumn=81  "80 character limit"
 
 " File extension specific settings
 autocmd Filetype html setlocal ts=2 sw=2 expandtab
@@ -130,6 +131,26 @@ nnoremap <leader>gb :Gblame<cr>
 " Pdv settings
 let g:pdv_template_dir = $HOME ."/.vim/plug/pdv/templates/"
 nnoremap <leader>d :call pdv#DocumentWithSnip()<CR>
+
+" Faster load of large files
+" file is large from 10mb
+let g:LargeFile = 1024 * 1024 * 10
+augroup LargeFile 
+ autocmd BufReadPre * let f=getfsize(expand("<afile>")) | if f > g:LargeFile || f == -2 | call LargeFile() | endif
+augroup END
+
+function LargeFile()
+ " no syntax highlighting etc
+ set eventignore+=FileType
+ " save memory when other file is viewed
+ setlocal bufhidden=unload
+ " is read-only (write with :w new_filename)
+ setlocal buftype=nowrite
+ " no undo possible
+ setlocal undolevels=-1
+ " display message
+ autocmd VimEnter *  echo "The file is larger than " . (g:LargeFile / 1024 / 1024) . " MB, so some options are changed (see .vimrc for details)."
+endfunction
 
 
 set secure

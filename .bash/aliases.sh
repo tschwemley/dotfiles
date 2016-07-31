@@ -32,11 +32,10 @@ alias cache-clear-dev="sudo rm -rf app/cache/* && console cache:clear --env=dev 
 alias symf-go-mobile="cache-clear-dev; sudo php app/console server:run `python -c 'import socket; print(socket.gethostbyname(socket.gethostname()))'`:80"
 
 # Git aliases
-alias gs="git status"
-alias gcob="git checkout -b"
 alias gl="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 alias gmt="git mergetool"
 alias ganw="git diff -w --no-color | git apply --cached --ignore-whitespace"
+alias git-review="vim $(git status --porcelain | awk '{print $2}')"
 
 # Package management
 alias agi="sudo apt-get install -y"
