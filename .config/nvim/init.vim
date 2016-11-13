@@ -21,6 +21,7 @@ set colorcolumn=81  "80 character limit"
 autocmd Filetype html setlocal ts=2 sw=2 expandtab
 autocmd Filetype css setlocal ts=2 sw=2 expandtab
 autocmd Filetype javascript setlocal ts=2 sw=2 expandtab
+autocmd Filetype typescript setlocal ts=2 sw=2 expandtab
 autocmd Filetype json setlocal ts=2 sw=2 expandtab
 autocmd Filetype jade setlocal ts=2 sw=2 expandtab
 autocmd Filetype sass setlocal ts=2 sw=2 expandtab
@@ -71,7 +72,10 @@ Plug 'tpope/vim-surround'               "Easy surrounding of text
 Plug 'tpope/vim-fugitive'               "Git wrapper for vim
 Plug 'shawncplus/phpcomplete.vim'       "Better php autocompletion
 Plug 'jiangmiao/auto-pairs'             "Auto match brackets, quotes, etc.
-Plug 'tobyS/pdv'
+Plug 'leafgarland/typescript-vim'       "Typescript syntax
+Plug 'ludovicchabant/vim-gutentags'     "Auto tag management
+Plug 'majutsushi/tagbar'                "Tag bar
+Plug 'tobyS/pdv'                        "PHP Doc
 Plug 'tobyS/vmustache'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
@@ -126,6 +130,10 @@ let g:ctrlp_funky_syntax_highlight = 1
 nnoremap <leader>gs :Gstatus<cr>
 nnoremap <leader>df :Gdiff<cr>
 nnoremap <leader>gb :Gblame<cr>
+
+
+"Tagbar settings
+nmap <leader>tl :TagbarToggle<CR>
 
 
 " Pdv settings
