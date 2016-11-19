@@ -72,13 +72,14 @@ Plug 'tpope/vim-surround'               "Easy surrounding of text
 Plug 'tpope/vim-fugitive'               "Git wrapper for vim
 Plug 'shawncplus/phpcomplete.vim'       "Better php autocompletion
 Plug 'jiangmiao/auto-pairs'             "Auto match brackets, quotes, etc.
-Plug 'leafgarland/typescript-vim'       "Typescript syntax
+Plug 'tschwemley/typescript-vim'       "Typescript syntax
 Plug 'ludovicchabant/vim-gutentags'     "Auto tag management
 Plug 'majutsushi/tagbar'                "Tag bar
 Plug 'tobyS/pdv'                        "PHP Doc
 Plug 'tobyS/vmustache'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
+Plug 'jason0x43/vim-js-indent'
 " Plug 'scrooloose/syntastic'
 
 
@@ -139,6 +140,7 @@ nmap <leader>tl :TagbarToggle<CR>
 " Pdv settings
 let g:pdv_template_dir = $HOME ."/.vim/plug/pdv/templates/"
 nnoremap <leader>d :call pdv#DocumentWithSnip()<CR>
+
 
 " Faster load of large files
 " file is large from 10mb
