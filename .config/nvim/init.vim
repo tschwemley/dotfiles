@@ -80,7 +80,7 @@ Plug 'tobyS/vmustache'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'jason0x43/vim-js-indent'
-" Plug 'scrooloose/syntastic'
+Plug 'quabug/vim-gdscript'
 
 
 call plug#end()
