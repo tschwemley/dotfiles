@@ -16,6 +16,7 @@ set exrc            "Allow local vimrc files to be declared
 set cot=menu        "Use menu instead of buffer for complete options menu
 set timeoutlen=300  "Delay before commands
 set colorcolumn=81  "80 character limit"
+set ignorecase       "Case insensitive search
 
 " File extension specific settings
 autocmd Filetype html setlocal ts=2 sw=2 expandtab
@@ -152,7 +153,7 @@ let g:vdebug_options["server"] = ""
 " let g:vdebug_options["debug_file"] = "vdebug_log"
 " let g:vdebug_options["debug_file_level"] = 2
 let g:vdebug_keymap = {
-\    "run" : "<c-s-r>",
+\    "run" : "<F5>",
 \    "run_to_cursor" : "<F9>",
 \    "step_over" : "<leader>j",
 \    "step_into" : "<leader>k",
