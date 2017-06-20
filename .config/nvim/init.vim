@@ -66,8 +66,6 @@ Plug 'vim-airline/vim-airline'          "Status line for vim
 Plug 'vim-airline/vim-airline-themes'   "Themes for airline
 Plug 'easymotion/vim-easymotion'        "Allows easy navigation
 Plug 'scrooloose/nerdtree'              "File browsing in vim
-Plug 'kien/ctrlp.vim'                   "Vim fuzzy finder
-Plug 'tacahiroy/ctrlp-funky'            "Ctags-less fuzzy finding of buffer functions
 Plug 'mhinz/vim-signify'                "Vim differences in gutter
 Plug 'tpope/vim-surround'               "Easy surrounding of text
 Plug 'tpope/vim-fugitive'               "Git wrapper for vim
@@ -83,6 +81,8 @@ Plug 'jason0x43/vim-js-indent'
 Plug 'quabug/vim-gdscript'
 " Plug 'scrooloose/syntastic'
 Plug 'joonty/vdebug'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 
 
 call plug#end()
@@ -92,6 +92,9 @@ call plug#end()
 syntax enable
 set background=dark
 colorscheme solarized
+
+" FZF settings
+nnoremap <c-p> :Files<CR>
 
 
 " Tcomment settings
@@ -114,19 +117,6 @@ let g:airline_theme='powerlineish'
 
 " Nerdtree settings
 nnoremap <C-b> :NERDTreeToggle<CR>
-
-
-" Ctrl-P settings (drastically improves load time)
-let g:ctrlp_cache_dir = '~/.cache/ctrlp'
-if executable('ag')
-  let g:ctrlp_user_command = 'ag %s --nocolor -g ""'
-endif
-
-
-" Ctrl-P Funky settings
-nnoremap <Leader>f :CtrlPFunky<Cr>
-nnoremap <Leader>F :execute 'CtrlPFunky ' . expand('<cword>')<Cr>
-let g:ctrlp_funky_syntax_highlight = 1
 
 
 " Fugitive settings
