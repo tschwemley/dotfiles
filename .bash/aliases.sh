@@ -21,6 +21,7 @@ alias la='ls -A'
 alias l='ls -CF'
 alias cdwww="cd /var/www"
 alias cdcol="cd /var/www/scrapwalls"
+alias cdalexa="cd /var/www/alexa"
 alias cdporn="cd /var/www/rand-porn"
 alias cdops="cd /var/www/ops"
 alias cdbash="cd ~/.bash"

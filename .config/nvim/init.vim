@@ -105,6 +105,8 @@ map <leader>c <c-_><c-_>
 let g:ycm_seed_identifiers_with_syntax = 1 
 let g:ycm_key_list_select_completion = ['<S-TAB>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<S-q>', '<Up>']
+let g:ycm_server_keep_logfiles = 1
+let g:ycm_server_log_level = 'debug'
 
 
 " Airline settings
