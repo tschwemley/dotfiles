@@ -21,7 +21,7 @@ alias la='ls -A'
 alias l='ls -CF'
 alias cdwww="cd /var/www"
 alias cdcol="cd /var/www/scrapwalls"
-alias cdalexa="cd /var/www/alexa"
+alias cdalexa="cd ~/alexa"
 alias cdporn="cd /var/www/rand-porn"
 alias cdops="cd /var/www/ops"
 alias cdbash="cd ~/.bash"
@@ -56,3 +56,6 @@ alias tmux="tmux -2"
 alias resize-win="bash ~/resize-window.sh 1080 1820"
 
 alias awscol="aws --profile=collage"
+alias awsjc="aws --profile=jackncode"
+
+alias docker="sudo docker"

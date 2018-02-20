@@ -59,31 +59,38 @@ nmap <leader>pi :PlugInstall<cr>
 nmap <leader>pc :PlugClean<cr>
 call plug#begin('~/.vim/plug')
 
-Plug 'altercation/vim-colors-solarized' "Solarized theme
+
+" Vim QoL & customization plugins.
 Plug 'tomtom/tcomment_vim'              "Easy commenting
-Plug 'Valloric/YouCompleteMe'           "Autocomplete
+Plug 'altercation/vim-colors-solarized' "Solarized theme
+Plug 'tpope/vim-surround'               "Easy surrounding of text
+Plug 'jiangmiao/auto-pairs'             "Auto match brackets, quotes, etc.
+
+" File navigation plugins
 Plug 'vim-airline/vim-airline'          "Status line for vim
 Plug 'vim-airline/vim-airline-themes'   "Themes for airline
 Plug 'easymotion/vim-easymotion'        "Allows easy navigation
 Plug 'scrooloose/nerdtree'              "File browsing in vim
-Plug 'mhinz/vim-signify'                "Vim differences in gutter
-Plug 'tpope/vim-surround'               "Easy surrounding of text
-Plug 'tpope/vim-fugitive'               "Git wrapper for vim
-Plug 'shawncplus/phpcomplete.vim'       "Better php autocompletion
-Plug 'jiangmiao/auto-pairs'             "Auto match brackets, quotes, etc.
-Plug 'tschwemley/typescript-vim'        "Typescript syntax
 Plug 'ludovicchabant/vim-gutentags'     "Auto tag management
 Plug 'majutsushi/tagbar'                "Tag bar
-Plug 'tobyS/pdv'                        "PHP Doc
-Plug 'tobyS/vmustache'
-Plug 'honza/vim-snippets'
-Plug 'jason0x43/vim-js-indent'
-Plug 'quabug/vim-gdscript'
-" Plug 'scrooloose/syntastic'
-Plug 'joonty/vdebug'
+Plug 'mhinz/vim-signify'                "Vim differences in gutter
+
+" Autocomplete and fuzzy finding plugins
+Plug 'Valloric/YouCompleteMe'           "Autocomplete
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
+" Javascript plugins
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
+" Plug 'jason0x43/vim-js-indent'
+
+" PHP plugins
+Plug 'shawncplus/phpcomplete.vim'       "Better php autocompletion
+Plug 'tobyS/pdv'                        "PHP Doc
+
+" Linting/syntax plugins
+" Plug 'scrooloose/syntastic'
 
 call plug#end()
 
@@ -134,30 +141,6 @@ nmap <leader>tl :TagbarToggle<CR>
 " Pdv settings
 let g:pdv_template_dir = $HOME ."/.vim/plug/pdv/templates/"
 nnoremap <leader>d :call pdv#DocumentWithSnip()<CR>
-
-
-" Vdebug
-let g:vdebug_options = {}
-let g:vdebug_options["port"] = 9005
-let g:vdebug_options["break_on_open"] = 1
-let g:vdebug_options["server"] = ""
-" let g:vdebug_options["server"] = "172.22.22.22"
-" let g:vdebug_options["debug_file"] = "vdebug_log"
-" let g:vdebug_options["debug_file_level"] = 2
-let g:vdebug_keymap = {
-\    "run" : "<F5>",
-\    "run_to_cursor" : "<F9>",
-\    "step_over" : "<leader>j",
-\    "step_into" : "<leader>k",
-\    "step_out" : "<leader>l",
-\    "close" : "<F6>",
-\    "detach" : "<F7>",
-\    "set_breakpoint" : "<leader>b",
-\    "get_context" : "<F11>",
-\    "eval_under_cursor" : "<F12>",
-\    "eval_visual" : "<Leader>e",
-\}
-
 
 " Faster load of large files
 " file is large from 10mb
