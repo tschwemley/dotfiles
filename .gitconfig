@@ -1,7 +1,7 @@
 [core]
 	autocrlf = input
     editor=nvim
-	excludesfile = /home/tyler/.gitignore_global
+	excludesfile = /home/tyler/.gitignore
 [user]
 	name = Tyler Schwemley
 	email = tjschwem@gmail.com
