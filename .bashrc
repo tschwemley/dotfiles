@@ -95,6 +95,7 @@ _apt_install_complete() {
 complete -F _apt_install_complete agi
 
 export TERM="xterm-256color"
-export PATH=$PATH:/usr/local/packer
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+export DOCKER_HOST=tcp://0.0.0.0:2375
