@@ -20,11 +20,10 @@ alias ll='ls -alhF'
 alias la='ls -A'
 alias l='ls -CF'
 alias cdwww="cd /var/www"
-alias cdcol="cd /var/www/scrapwalls"
-alias cdalexa="cd ~/alexa"
-alias cdporn="cd /var/www/rand-porn"
-alias cdops="cd /var/www/ops"
+alias cdnmi="cd /var/www/nm-gateway"
 alias cdbash="cd ~/.bash"
+alias cddl="cd /mnt/c/Users/tjsch/Downloads"
+alias cdc="cd /mnt/c/"
 
 # Syfmony aliases
 alias console="php app/console"
@@ -58,4 +57,4 @@ alias resize-win="bash ~/resize-window.sh 1080 1820"
 alias awscol="aws --profile=collage"
 alias awsjc="aws --profile=jackncode"
 
-alias docker="sudo docker"
+# alias docker="sudo docker"
