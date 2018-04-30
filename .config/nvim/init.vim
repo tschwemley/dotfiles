@@ -28,11 +28,13 @@ autocmd Filetype jade setlocal ts=2 sw=2 expandtab
 autocmd Filetype sass setlocal ts=2 sw=2 expandtab
 autocmd Filetype scss setlocal ts=2 sw=2 expandtab
 autocmd Filetype sql setlocal ts=2 sw=2 expandtab
+autocmd Filetype vue setlocal ts=2 sw=2 expandtab
 
 
 " Navigation and file management keymappings
 let mapleader=","
 nnoremap <leader>w :w!<cr>
+nnoremap <C-s> :w!<cr>
 nnoremap <leader>wq :wq!<cr>
 nnoremap <leader>q :q!<cr>
 nnoremap <leader>bd :bd<cr>
@@ -41,10 +43,7 @@ nnoremap <leader>bp :bp<cr>
 nnoremap <leader>bf :bf<cr>
 nnoremap <leader>bl :bl<cr>
 nnoremap <leader>y "+y<cr>
-inoremap j<space>j <esc><esc>
 inoremap j<space>j <esc>
-nnoremap <c-j> <pagedown>
-nnoremap <c-k> <pageup>
 
 
 " Vimrc management
@@ -83,6 +82,7 @@ Plug 'junegunn/fzf.vim'
 " Javascript plugins
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
+" Plug 'posva/vim-vue'
 " Plug 'jason0x43/vim-js-indent'
 
 " PHP plugins
