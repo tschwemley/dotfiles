@@ -24,6 +24,7 @@ alias cdnmi="cd /var/www/nm-gateway"
 alias cdbash="cd ~/.bash"
 alias cddl="cd /mnt/c/Users/tjsch/Downloads"
 alias cdc="cd /mnt/c/"
+alias cdad="cd /mnt/c/Users/tjsch/AppData"
 
 # Syfmony aliases
 alias console="php app/console"
@@ -56,5 +57,3 @@ alias resize-win="bash ~/resize-window.sh 1080 1820"
 
 alias awscol="aws --profile=collage"
 alias awsjc="aws --profile=jackncode"
-
-# alias docker="sudo docker"
