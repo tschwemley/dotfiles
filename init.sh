@@ -16,6 +16,10 @@ if [ -e /home/$USER/.bashrc ] ; then
     rm /home/$USER/.bashrc
 fi
 
+if [ -e /home/$USER/.profile ] ; then
+    rm /home/$USER/.profile
+fi
+
 if [ -e /home/$USER/.bash ] ; then
     rm -r /home/$USER/.bash
 fi
@@ -35,6 +39,7 @@ fi
 ln -s $DIR/.bash /home/$USER/.bash
 ln -s $DIR/.tmux.conf /home/$USER/.tmux.conf
 ln -s $DIR/.bashrc /home/$USER/.bashrc
+ln -s $DIR/.profile /home/$USER/.profile
 ln -s $DIR/.gitconfig /home/$USER/.gitconfig
 ln -s $DIR/.config/nvim/init.vim /home/$USER/.config/nvim/init.vim
 

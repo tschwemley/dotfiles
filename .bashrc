@@ -87,6 +87,9 @@ fi
 if [ -f /home/$USER/.bash/aliases.sh ]; then
     . /home/$USER/.bash/aliases.sh
 fi
+if [ -f /home/$USER/.bash/local.sh ]; then
+    . /home/$USER/.bash/local.sh
+fi
 
 # Autocomplete for apt-get alias
 _apt_install_complete() { 
@@ -94,8 +97,4 @@ _apt_install_complete() {
 }
 complete -F _apt_install_complete agi
 
-export TERM="xterm-256color"
-
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
-
-export DOCKER_HOST=tcp://0.0.0.0:2375

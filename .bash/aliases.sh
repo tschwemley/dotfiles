@@ -57,3 +57,5 @@ alias resize-win="bash ~/resize-window.sh 1080 1820"
 
 alias awscol="aws --profile=collage"
 alias awsjc="aws --profile=jackncode"
+
+alias go="/mnt/c/Go/bin/go.exe"
