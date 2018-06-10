@@ -34,6 +34,6 @@ export TERM="xterm-256color"
 export DOCKER_HOST=tcp://0.0.0.0:2375
 
 export GOROOT=/mnt/c/Go/
-export GOPATH=/mnt/c/Users/$WINDOWS_USER/go
+export GOPATH=/mnt/c/gocode
 
 export WINDOWS_USER
