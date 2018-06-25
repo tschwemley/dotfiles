@@ -26,6 +26,7 @@ alias cddl="cd /mnt/c/Users/tjsch/Downloads"
 alias cdc="cd /mnt/c/"
 alias cdad="cd /mnt/c/Users/tjsch/AppData"
 alias cdgo="cd /mnt/c/gocode/src"
+alias cdnode="cd /mnt/c/node"
 
 # Syfmony aliases
 alias console="php app/console"
