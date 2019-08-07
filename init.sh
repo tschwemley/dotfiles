@@ -4,12 +4,12 @@
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}"  )" && pwd  )"
 
 # Clean any pre-existing files and add necessary dirs
-if [ ! -d .config ] ; then
-    mkdir .config
+if [ ! -d /home/$USER/.config ] ; then
+    mkdir /home/$USER/.config
 fi
 
-if [ ! -d .config/nvim ] ; then
-    mkdir .config/nvim
+if [ ! -d /home/$USER/.config/nvim ] ; then
+    mkdir /home/$USER/.config/nvim
 fi
 
 if [ -e /home/$USER/.bashrc ] ; then
