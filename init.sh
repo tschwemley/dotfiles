@@ -9,7 +9,7 @@ if [ ! -d /home/$USER/.config ] ; then
 fi
 
 if [ ! -d /home/$USER/.config/nvim ] ; then
-    mkdir /home/$USER/.config/nvim
+    mkdir -p /home/$USER/.config/nvim
 fi
 
 if [ -e /home/$USER/.bashrc ] ; then
@@ -41,6 +41,7 @@ ln -s $DIR/.tmux.conf /home/$USER/.tmux.conf
 ln -s $DIR/.bashrc /home/$USER/.bashrc
 ln -s $DIR/.profile /home/$USER/.profile
 ln -s $DIR/.gitconfig /home/$USER/.gitconfig
+ln -s $DIR/.git_templates /home/$USER/.git_templates
 ln -s $DIR/.config/nvim/init.vim /home/$USER/.config/nvim/init.vim
 
 # Install nvim plugin manager

@@ -13,8 +13,11 @@
     cm = !git add -A && git commit -m
     b = branch
     bd = !git branch -D
+	ctags = !.git/hooks/ctags
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
+[init]
+	templatedir = ~/.git_template

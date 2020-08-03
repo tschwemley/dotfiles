@@ -98,3 +98,7 @@ _apt_install_complete() {
 complete -F _apt_install_complete agi
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+# Include exports
+[ -f /home/$USER/.bash/exports.sh ] && source /home/$USER/.bash/exports.sh
+

@@ -1,22 +1,29 @@
 " General configuration
-set number			"Always show line numbers
-set nohlsearch		"Don't highlight search results
-set nowrap			"Don't wrap lines
 set autowrite 		"Save on buffer switch
-set tabstop=4		"Set tabs to width of 4
-set softtabstop=4	"Number of spaces a tab counts for while performing editing
-set expandtab		"Expand tabs by default
-set shiftwidth=4	"Number of spaces to use when tabbing
-set shiftround		"Use multple of shiftwidth when indenting with < >
+set colorcolumn=120 "120 character limit"
 set copyindent		"Copy the previous indentation on autoindention
-set showcmd         "Show partial command in statusline
-set noswapfile      "No swap files
-set tags=tags;      "Tags file name
-set exrc            "Allow local vimrc files to be declared
 set cot=menu        "Use menu instead of buffer for complete options menu
+set expandtab		"Expand tabs by default
+set exrc            "Allow local vimrc files to be declared
+set fo-=ro           "Disable enter continuing comments
+set ignorecase      "Case insensitive search
+set lazyredraw      "Don't redrawa screen on macro, register typing
+set mouse=a         "Allow mouse usage/scrolling
+set nofoldenable foldmethod=syntax foldlevel=1 foldcolumn=1
+set nohlsearch		"Don't highlight search results
+set noswapfile      "No swap files
+set nowrap			"Don't wrap lines
+set number			"Always show line numbers
+set scrolloff=2     "Minimal number of screen lines to keep above and below cursor
+set shiftround		"Use multple of shiftwidth when indenting with < >
+set shiftwidth=4	"Number of spaces to use when tabbing
+set showcmd         "Show partial comand in statusline
+set smartcase       "Disable ignore case when searching with uppeer case characters
+set softtabstop=4	"Number of spaces a tab counts for while performing editing
+set tabstop=4		"Set tabs to width of 4
+set tags=tags;      "Tags file name
 set timeoutlen=300  "Delay before commands
-set colorcolumn=81  "80 character limit"
-set ignorecase       "Case insensitive search
+
 
 " File extension specific settings
 autocmd Filetype html setlocal ts=2 sw=2 expandtab
@@ -42,7 +49,6 @@ nnoremap <leader>bn :bn<cr>
 nnoremap <leader>bp :bp<cr>
 nnoremap <leader>bf :bf<cr>
 nnoremap <leader>bl :bl<cr>
-nnoremap <leader>y "+y<cr>
 inoremap j<space>j <esc>
 
 
@@ -58,62 +64,40 @@ nmap <leader>pi :PlugInstall<cr>
 nmap <leader>pc :PlugClean<cr>
 call plug#begin('~/.vim/plug')
 
-
-" Vim QoL & customization plugins.
-Plug 'tomtom/tcomment_vim'              "Easy commenting
+" Aesthetics
 Plug 'altercation/vim-colors-solarized' "Solarized theme
-Plug 'tpope/vim-surround'               "Easy surrounding of text
-Plug 'jiangmiao/auto-pairs'             "Auto match brackets, quotes, etc.
-
-" File navigation plugins
+Plug 'junegunn/rainbow_parentheses.vim' "Shows matching brackets and parentheses in matching colors
+Plug 'ryanoasis/vim-devicons'           "Adds filetype glyphs to various vim plugins
 Plug 'vim-airline/vim-airline'          "Status line for vim
-Plug 'vim-airline/vim-airline-themes'   "Themes for airline
-Plug 'easymotion/vim-easymotion'        "Allows easy navigation
-Plug 'scrooloose/nerdtree'              "File browsing in vim
-Plug 'ludovicchabant/vim-gutentags'     "Auto tag management
-Plug 'majutsushi/tagbar'                "Tag bar
-Plug 'mhinz/vim-signify'                "Vim differences in gutter
+Plug 'vim-airline/vim-airline-themes'   "Themes for vim-airline
 
-" Autocomplete and fuzzy finding plugins
-Plug 'Valloric/YouCompleteMe'           "Autocomplete
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
+" Functionality
+Plug 'airblade/vim-gitgutter'                       "Show git changes in gutter
+Plug 'easymotion/vim-easymotion'                    "Allows easy navigation
+Plug 'jiangmiao/auto-pairs'                         "Auto pair brackets
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } "TODO: come up with a sensible description 
+Plug 'junegunn/fzf.vim'                             "TODO: come up with a sensible description
+Plug 'junegunn/vim-easy-align'                      "Adds easy aligning by symbols/characters
+Plug 'lilydjwg/colorizer'                           "Shows color previews for CSS properties
+Plug 'ludovicchabant/vim-gutentags'                 "Ctags support
+Plug 'majutsushi/tagbar'                            "Shows file tags/definitions
+Plug 'mhinz/vim-grepper'                            "Enables grep searching of buffer/all buffers/project
+Plug 'preservim/nerdcommenter'                      "Commenting plugin
+Plug 'preservim/nerdtree'                           "File explorer plugin
+Plug 'tpope/vim-fugitive'                           "Git plugin for vim
+Plug 'tpope/vim-sensible'                           "Defaults for common behavior and settings
+Plug 'tpope/vim-surround'                           "Plugin for easy 'surrounding' of brachets, parens, tags, etc.
+Plug 'universal-ctags/ctags'
+Plug 'xuyuanp/nerdtree-git-plugin'                  "Show git file status in NERDTree
+Plug 'yggdroot/indentline'                          "Show thin vertical lines for indendted code
 
-" Javascript plugins
-Plug 'pangloss/vim-javascript'
-Plug 'mxw/vim-jsx'
-" Plug 'posva/vim-vue'
-" Plug 'jason0x43/vim-js-indent'
-
-" PHP plugins
-Plug 'shawncplus/phpcomplete.vim'       "Better php autocompletion
-Plug 'tobyS/pdv'                        "PHP Doc
-
-" Linting/syntax plugins
-" Plug 'scrooloose/syntastic'
+" Programming
+Plug 'sheerun/vim-polyglot'                                     "Collection of language packs for vim
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }   "Autocomplete in vim
+Plug 'vim-test/vim-test'                                        "Easy test running from within vim
+Plug 'w0rp/ale'                                                 "Vim linting engine
 
 call plug#end()
-
-
-" Solarized settings
-syntax enable
-set background=dark
-colorscheme solarized
-
-" FZF settings
-nnoremap <c-p> :Files<CR>
-
-
-" Tcomment settings
-map <leader>c <c-_><c-_>
-
-
-" YouCompleteMe settings
-let g:ycm_seed_identifiers_with_syntax = 1 
-let g:ycm_key_list_select_completion = ['<S-TAB>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<S-q>', '<Up>']
-let g:ycm_server_keep_logfiles = 1
-let g:ycm_server_log_level = 'debug'
 
 
 " Airline settings
@@ -121,11 +105,12 @@ set laststatus=2        "Always show the statusline
 set noshowmode          "Hide the default mode text
 let g:airline#extensions#tabline#enabled=1
 let g:airline_powerline_fonts = 1
-let g:airline_theme='powerlineish'
+let g:airline_solarized_bg='dark'
+let g:airline_theme='solarized'
 
 
-" Nerdtree settings
-nnoremap <C-b> :NERDTreeToggle<CR>
+let g:deoplete#enable_at_startup = 1
+set completeopt-=preview
 
 
 " Fugitive settings
@@ -134,13 +119,31 @@ nnoremap <leader>df :Gdiff<cr>
 nnoremap <leader>gb :Gblame<cr>
 
 
+" FZF settings
+nnoremap <c-p> :Files<CR>
+
+
+" Nerdcommenter settings
+nnoremap <leader>c :call NERDComment(0,"toggle")<CR>
+vnoremap <leader>c :call NERDComment(0,"toggle")<CR>
+
+
+" Nerdtree settings
+nnoremap <C-b> :NERDTreeToggle<CR>
+let NERDTreeShowHidden=1
+
+
+" Solarized settings
+syntax enable
+set background=dark
+colorscheme solarized
+
+
 "Tagbar settings
 nmap <leader>tl :TagbarToggle<CR>
+let g:tagbar_ctags_bin = '/snap/bin/ctags'
+let g:tagbar_use_cache = 0
 
-
-" Pdv settings
-let g:pdv_template_dir = $HOME ."/.vim/plug/pdv/templates/"
-nnoremap <leader>d :call pdv#DocumentWithSnip()<CR>
 
 " Faster load of large files
 " file is large from 10mb
@@ -149,18 +152,5 @@ augroup LargeFile
  autocmd BufReadPre * let f=getfsize(expand("<afile>")) | if f > g:LargeFile || f == -2 | call LargeFile() | endif
 augroup END
 
-function LargeFile()
- " no syntax highlighting etc
- set eventignore+=FileType
- " save memory when other file is viewed
- setlocal bufhidden=unload
- " is read-only (write with :w new_filename)
- setlocal buftype=nowrite
- " no undo possible
- setlocal undolevels=-1
- " display message
- autocmd VimEnter *  echo "The file is larger than " . (g:LargeFile / 1024 / 1024) . " MB, so some options are changed (see .vimrc for details)."
-endfunction
-
-
 set secure
+
