@@ -1,11 +1,12 @@
-" General configuration
 set autowrite 		"Save on buffer switch
+set cmdheight=2     "Give more space for displaying messages
 set colorcolumn=120 "120 character limit"
 set copyindent		"Copy the previous indentation on autoindention
 set cot=menu        "Use menu instead of buffer for complete options menu
 set expandtab		"Expand tabs by default
 set exrc            "Allow local vimrc files to be declared
-set fo-=ro           "Disable enter continuing comments
+set fo-=ro          "Disable enter continuing comments
+set hidden          "When a buffer is no longer in use it is hidden
 set ignorecase      "Case insensitive search
 set lazyredraw      "Don't redrawa screen on macro, register typing
 set mouse=a         "Allow mouse usage/scrolling
@@ -23,6 +24,7 @@ set softtabstop=4	"Number of spaces a tab counts for while performing editing
 set tabstop=4		"Set tabs to width of 4
 set tags=tags;      "Tags file name
 set timeoutlen=300  "Delay before commands
+set updatetime=300  "Decreases delays with coc.nvim
 
 
 " File extension specific settings
@@ -51,7 +53,6 @@ nnoremap <leader>bf :bf<cr>
 nnoremap <leader>bl :bl<cr>
 inoremap j<space>j <esc>
 
-
 " Vimrc management
 nnoremap <leader>ev :e ~/.config/nvim/init.vim<cr>
 nnoremap <leader>sov :so ~/.config/nvim/init.vim<cr>
@@ -79,7 +80,6 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } "TODO: come up with a sensib
 Plug 'junegunn/fzf.vim'                             "TODO: come up with a sensible description
 Plug 'junegunn/vim-easy-align'                      "Adds easy aligning by symbols/characters
 Plug 'lilydjwg/colorizer'                           "Shows color previews for CSS properties
-Plug 'ludovicchabant/vim-gutentags'                 "Ctags support
 Plug 'majutsushi/tagbar'                            "Shows file tags/definitions
 Plug 'mhinz/vim-grepper'                            "Enables grep searching of buffer/all buffers/project
 Plug 'preservim/nerdcommenter'                      "Commenting plugin
@@ -92,8 +92,8 @@ Plug 'xuyuanp/nerdtree-git-plugin'                  "Show git file status in NER
 Plug 'yggdroot/indentline'                          "Show thin vertical lines for indendted code
 
 " Programming
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'sheerun/vim-polyglot'                                     "Collection of language packs for vim
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }   "Autocomplete in vim
 Plug 'vim-test/vim-test'                                        "Easy test running from within vim
 Plug 'w0rp/ale'                                                 "Vim linting engine
 
@@ -109,9 +109,29 @@ let g:airline_solarized_bg='dark'
 let g:airline_theme='solarized'
 
 
-let g:deoplete#enable_at_startup = 1
-set completeopt-=preview
+"Coc.nvim settings
+"Use tab for trigger completion with characters ahead and navigate.
+"inoremap <silent><expr> <TAB>
+            "\ pumvisible() ? "\<C-n>" :
+            "\ <SID>check_back_space() ? "\<TAB>" :
+            "\ coc#refresh()
+"inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
+"function! s:check_back_space() abort
+    "let col = col('.') - 1
+    "return !col || getline('.')[col - 1]  =~# '\s'
+"endfunction
+
+" Use `[g` and `]g` to navigate diagnostics
+" Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)"
+
+"GoTo code navigation
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
 
 " Fugitive settings
 nnoremap <leader>gs :Gstatus<cr>
