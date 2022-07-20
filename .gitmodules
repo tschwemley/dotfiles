@@ -1,0 +1,3 @@
+[submodule "/Users/tschwemley/.config/nvim"]
+	path = /Users/tschwemley/.config/nvim
+	url = https://github.com/AstroNvim/AstroNvim
