@@ -8,3 +8,4 @@ alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
 # Use neovim in place of vim
 alias vim="/usr/local/bin/nvim"
+

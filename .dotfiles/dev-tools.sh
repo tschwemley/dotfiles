@@ -1,5 +1,4 @@
-#install rust
-curl https://sh.rustup.rs -sSf | sh
+BIN_PATH=$HOME/bin
 
-# install gobang (db tui)
-cargo install --version 0.1.0-alpha.5 gobang
+#install cheat.sh (cheat sheet)
+curl https://cht.sh/:cht.sh > "$BIN_PATH/cheat"
