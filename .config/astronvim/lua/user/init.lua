@@ -50,7 +50,8 @@ local config = {
       {
         "kristijanhusak/vim-dadbod-ui",
         requires = {"tpope/vim-dadbod"}
-      }
+      },
+      {"ledger/vim-ledger"}
   },
   -- All other entries override the setup() call for default plugins
   ["indent-o-matic"] = {
