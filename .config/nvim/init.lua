@@ -433,6 +433,8 @@ cmp.setup {
 
 -- Custom keymaps
 vim.keymap.set({ 'n', 'v' }, '<C-h>', '<C-w>h')
+vim.keymap.set({ 'n', 'v' }, '<C-j>', '<C-w>j')
+vim.keymap.set({ 'n', 'v' }, '<C-k>', '<C-w>k')
 vim.keymap.set({ 'n', 'v' }, '<C-l>', '<C-w>l')
 
 -- The line beneath this is called `modeline`. See `:help modeline`
