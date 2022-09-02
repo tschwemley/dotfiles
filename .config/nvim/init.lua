@@ -127,6 +127,7 @@ vim.wo.signcolumn = 'yes'
 
 -- Set colorscheme
 vim.o.termguicolors = true
+vim.g.everforest_background = 'soft'
 vim.cmd [[colorscheme everforest]]
 
 -- Set completeopt to have a better completion experience
@@ -429,6 +430,10 @@ cmp.setup {
     { name = 'luasnip' },
   },
 }
+
+-- Custom keymaps
+vim.keymap.set({ 'n', 'v' }, '<C-h>', '<C-w>h')
+vim.keymap.set({ 'n', 'v' }, '<C-l>', '<C-w>l')
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
