@@ -79,6 +79,12 @@ _G.packer_plugins = {
     path = "/Users/tschwemley/.local/share/nvim/site/pack/packer/start/LuaSnip",
     url = "https://github.com/L3MON4D3/LuaSnip"
   },
+  ["better-escape.nvim"] = {
+    config = { "\27LJ\2\n£\1\0\0\4\0\n\0\r6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\0026\3\6\0009\3\a\0039\3\b\3=\3\t\2B\0\2\1K\0\1\0\ftimeout\15timeoutlen\6o\bvim\fmapping\1\0\2\22clear_empty_lines\1\tkeys\n<Esc>\1\3\0\0\ajk\ajj\nsetup\18better_escape\frequire\0" },
+    loaded = true,
+    path = "/Users/tschwemley/.local/share/nvim/site/pack/packer/start/better-escape.nvim",
+    url = "https://github.com/max397574/better-escape.nvim"
+  },
   ["cmp-nvim-lsp"] = {
     loaded = true,
     path = "/Users/tschwemley/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
@@ -88,6 +94,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/tschwemley/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
+  },
+  everforest = {
+    loaded = true,
+    path = "/Users/tschwemley/.local/share/nvim/site/pack/packer/start/everforest",
+    url = "https://github.com/sainnhe/everforest"
   },
   ["gitsigns.nvim"] = {
     loaded = true,
@@ -107,12 +118,17 @@ _G.packer_plugins = {
   ["mason-lspconfig.nvim"] = {
     loaded = true,
     path = "/Users/tschwemley/.local/share/nvim/site/pack/packer/start/mason-lspconfig.nvim",
-    url = "https://github.com//williamboman/mason-lspconfig.nvim"
+    url = "https://github.com/williamboman/mason-lspconfig.nvim"
   },
   ["mason.nvim"] = {
     loaded = true,
     path = "/Users/tschwemley/.local/share/nvim/site/pack/packer/start/mason.nvim",
-    url = "https://github.com//williamboman/mason.nvim"
+    url = "https://github.com/williamboman/mason.nvim"
+  },
+  ["null-ls.nvim"] = {
+    loaded = true,
+    path = "/Users/tschwemley/.local/share/nvim/site/pack/packer/start/null-ls.nvim",
+    url = "https://github.com/jose-elias-alvarez/null-ls.nvim"
   },
   ["nvim-cmp"] = {
     loaded = true,
@@ -124,6 +140,11 @@ _G.packer_plugins = {
     path = "/Users/tschwemley/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
   },
+  ["nvim-tree.lua"] = {
+    loaded = true,
+    path = "/Users/tschwemley/.local/share/nvim/site/pack/packer/start/nvim-tree.lua",
+    url = "https://github.com/kyazdani42/nvim-tree.lua"
+  },
   ["nvim-treesitter"] = {
     loaded = true,
     path = "/Users/tschwemley/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
@@ -134,10 +155,10 @@ _G.packer_plugins = {
     path = "/Users/tschwemley/.local/share/nvim/site/pack/packer/start/nvim-treesitter-textobjects",
     url = "https://github.com/nvim-treesitter/nvim-treesitter-textobjects"
   },
-  ["onedark.nvim"] = {
+  ["nvim-web-devicons"] = {
     loaded = true,
-    path = "/Users/tschwemley/.local/share/nvim/site/pack/packer/start/onedark.nvim",
-    url = "https://github.com/mjlbach/onedark.nvim"
+    path = "/Users/tschwemley/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
+    url = "https://github.com/kyazdani42/nvim-web-devicons"
   },
   ["packer.nvim"] = {
     loaded = true,
@@ -162,6 +183,16 @@ _G.packer_plugins = {
     path = "/Users/tschwemley/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
   },
+  ["vim-dadbod"] = {
+    loaded = true,
+    path = "/Users/tschwemley/.local/share/nvim/site/pack/packer/start/vim-dadbod",
+    url = "https://github.com/tpope/vim-dadbod"
+  },
+  ["vim-dadbod-ui"] = {
+    loaded = true,
+    path = "/Users/tschwemley/.local/share/nvim/site/pack/packer/start/vim-dadbod-ui",
+    url = "https://github.com/kristijanhusak/vim-dadbod-ui"
+  },
   ["vim-fugitive"] = {
     loaded = true,
     path = "/Users/tschwemley/.local/share/nvim/site/pack/packer/start/vim-fugitive",
@@ -180,6 +211,10 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
+-- Config for: better-escape.nvim
+time([[Config for better-escape.nvim]], true)
+try_loadstring("\27LJ\2\n£\1\0\0\4\0\n\0\r6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\0026\3\6\0009\3\a\0039\3\b\3=\3\t\2B\0\2\1K\0\1\0\ftimeout\15timeoutlen\6o\bvim\fmapping\1\0\2\22clear_empty_lines\1\tkeys\n<Esc>\1\3\0\0\ajk\ajj\nsetup\18better_escape\frequire\0", "config", "better-escape.nvim")
+time([[Config for better-escape.nvim]], false)
 -- Conditional loads
 time([[Conditional loading of telescope-fzf-native.nvim]], true)
   require("packer.load")({"telescope-fzf-native.nvim"}, {}, _G.packer_plugins)

@@ -19,21 +19,52 @@ require('packer').startup(function(use)
 
   use 'nvim-treesitter/nvim-treesitter'                                           -- Highlight, edit, and navigate code
   use 'nvim-treesitter/nvim-treesitter-textobjects'                               -- Additional textobjects for treesitter
-  use '/williamboman/mason.nvim'                                           -- Automatically install language servers to stdpath
+  use 'williamboman/mason.nvim'                                           -- Automatically install language servers to stdpath
   use 'neovim/nvim-lspconfig'                                                     -- Collection of configurations for built-in LSP client
-  use '/williamboman/mason-lspconfig.nvim'                                           -- Automatically install language servers to stdpath
+  use 'williamboman/mason-lspconfig.nvim'                                           -- Automatically install language servers to stdpath
 
   use { 'hrsh7th/nvim-cmp', requires = { 'hrsh7th/cmp-nvim-lsp' } }               -- Autocompletion
   
   use { 'L3MON4D3/LuaSnip', requires = { 'saadparwaiz1/cmp_luasnip' } }           -- Snippet Engine and Snippet Expansion
 
-  use 'mjlbach/onedark.nvim'                                                      -- Theme inspired by Atom
+  use 'sainnhe/everforest'
   use 'nvim-lualine/lualine.nvim'                                                 -- Fancier statusline
   use 'lukas-reineke/indent-blankline.nvim'                                       -- Add indentation guides even on blank lines
 
   use 'tpope/vim-sleuth'                                                          -- Detect tabstop and shiftwidth automatically
 
+  use 'jose-elias-alvarez/null-ls.nvim'
+
   use { 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim' } } -- Fuzzy Finder (files, lsp, etc)
+
+  use {
+    'kyazdani42/nvim-tree.lua',
+    requires = {
+      'kyazdani42/nvim-web-devicons', -- optional, for file icons
+    },
+    tag = 'nightly' -- optional, updated every week. (see issue #1193)
+  }
+
+  -- lua with packer.nvim
+  use {
+    'max397574/better-escape.nvim',
+    config = function()
+      require("better_escape").setup {
+          mapping = {"jk", "jj"}, -- a table with mappings to use
+          timeout = vim.o.timeoutlen, -- the time in which the keys must be hit in ms. Use option timeoutlen by default
+          clear_empty_lines = false, -- clear line after escaping if there is only whitespace
+          keys = "<Esc>", -- keys used for escaping, if it is a function will use the result everytime
+          -- example(recommended)
+          -- keys = function()
+          --   return vim.api.nvim_win_get_cursor(0)[2] > 1 and '<esc>l' or '<esc>'
+          -- end,
+      }
+    end,
+  }
+  
+  -- Db Interaction
+  use { 'tpope/vim-dadbod' }
+  use { 'kristijanhusak/vim-dadbod-ui', requires = { 'tpope/vim-dadbod' } }
 
   -- Fuzzy Finder Algorithm which requires local dependencies to be built. Only load if `make` is available
   use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make', cond = vim.fn.executable "make" == 1 }
@@ -74,6 +105,9 @@ vim.o.hlsearch = false
 -- Make line numbers default
 vim.wo.number = true
 
+-- Make relative line numbers default
+vim.wo.relativenumber = true
+
 -- Enable mouse mode
 vim.o.mouse = 'a'
 
@@ -93,15 +127,13 @@ vim.wo.signcolumn = 'yes'
 
 -- Set colorscheme
 vim.o.termguicolors = true
-vim.cmd [[colorscheme onedark]]
+vim.cmd [[colorscheme everforest]]
 
 -- Set completeopt to have a better completion experience
 vim.o.completeopt = 'menuone,noselect'
 
 -- [[ Basic Keymaps ]]
 -- Set <space> as the leader key
--- See `:help mapleader`
---  NOTE: Must happen before plugins are required (otherwise wrong leader will be used)
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
@@ -127,12 +159,17 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 -- Enable mason
 require('mason').setup()
 
+-- Enable nvimtree
+require('nvim-tree').setup()
+
+-- Enable Better Escape
+-- lua, default settings
 -- Set lualine as statusline
 -- See `:help lualine.txt`
 require('lualine').setup {
   options = {
     icons_enabled = false,
-    theme = 'onedark',
+    theme = 'everforest',
     component_separators = '|',
     section_separators = '',
   },
@@ -197,7 +234,7 @@ vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { de
 -- See `:help nvim-treesitter`
 require('nvim-treesitter.configs').setup {
   -- Add languages to be installed here that you want installed for treesitter
-  ensure_installed = { 'lua', 'typescript', 'rust', 'go', 'python' },
+  ensure_installed = { 'lua', 'typescript', 'rust', 'go', 'python', 'php' },
 
   highlight = { enable = true },
   indent = { enable = true },
