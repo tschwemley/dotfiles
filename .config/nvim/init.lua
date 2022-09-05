@@ -14,17 +14,39 @@ require('packer').startup(function(use)
   use 'tpope/vim-fugitive'                                                        -- Git commands in nvim
   use 'tpope/vim-rhubarb'                                                         -- Fugitive-companion to interact with github
   use { 'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' } }       -- Add git related info in the signs columns and popups
-  
+
   use 'numToStr/Comment.nvim'                                                     -- "gc" to comment visual regions/lines
 
   use 'nvim-treesitter/nvim-treesitter'                                           -- Highlight, edit, and navigate code
   use 'nvim-treesitter/nvim-treesitter-textobjects'                               -- Additional textobjects for treesitter
-  use 'williamboman/mason.nvim'                                           -- Automatically install language servers to stdpath
-  use 'neovim/nvim-lspconfig'                                                     -- Collection of configurations for built-in LSP client
-  use 'williamboman/mason-lspconfig.nvim'                                           -- Automatically install language servers to stdpath
+
+  use { 'williamboman/mason.nvim',
+    config = function ()
+      require('mason').setup()
+    end
+  } -- Package management for neovim LSP, DAP, Linters, and Formatters
+
+  use 'williamboman/mason-lspconfig.nvim'
+
+  use 'neovim/nvim-lspconfig'
+
+  use {
+    'jose-elias-alvarez/null-ls.nvim',
+    requires = { 'nvim-lua/plenary.nvim' },
+    config = function()
+      local null_ls = require('null-ls')
+      require('null-ls').setup({
+        sources = {
+          null_ls.builtins.formatting.gofmt,
+          null_ls.builtins.formatting.stylua,
+        }
+      })
+    end
+  }
+
 
   use { 'hrsh7th/nvim-cmp', requires = { 'hrsh7th/cmp-nvim-lsp' } }               -- Autocompletion
-  
+
   use { 'L3MON4D3/LuaSnip', requires = { 'saadparwaiz1/cmp_luasnip' } }           -- Snippet Engine and Snippet Expansion
 
   use 'sainnhe/everforest'
@@ -33,15 +55,11 @@ require('packer').startup(function(use)
 
   use 'tpope/vim-sleuth'                                                          -- Detect tabstop and shiftwidth automatically
 
-  use 'jose-elias-alvarez/null-ls.nvim'
-
   use { 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim' } } -- Fuzzy Finder (files, lsp, etc)
 
   use {
     'kyazdani42/nvim-tree.lua',
-    requires = {
-      'kyazdani42/nvim-web-devicons', -- optional, for file icons
-    },
+    requires = { 'kyazdani42/nvim-web-devicons', }, -- optional, for file icons 
     tag = 'nightly' -- optional, updated every week. (see issue #1193)
   }
 
@@ -50,18 +68,18 @@ require('packer').startup(function(use)
     'max397574/better-escape.nvim',
     config = function()
       require("better_escape").setup {
-          mapping = {"jk", "jj"}, -- a table with mappings to use
-          timeout = vim.o.timeoutlen, -- the time in which the keys must be hit in ms. Use option timeoutlen by default
-          clear_empty_lines = false, -- clear line after escaping if there is only whitespace
-          keys = "<Esc>", -- keys used for escaping, if it is a function will use the result everytime
-          -- example(recommended)
-          -- keys = function()
-          --   return vim.api.nvim_win_get_cursor(0)[2] > 1 and '<esc>l' or '<esc>'
-          -- end,
+        mapping = {"jk", "jj"}, -- a table with mappings to use
+        timeout = vim.o.timeoutlen, -- the time in which the keys must be hit in ms. Use option timeoutlen by default
+        clear_empty_lines = false, -- clear line after escaping if there is only whitespace
+        keys = "<Esc>", -- keys used for escaping, if it is a function will use the result everytime
+        -- example(recommended)
+        -- keys = function()
+        --   return vim.api.nvim_win_get_cursor(0)[2] > 1 and '<esc>l' or '<esc>'
+        -- end,
       }
     end,
   }
-  
+
   -- Db Interaction
   use { 'tpope/vim-dadbod' }
   use { 'kristijanhusak/vim-dadbod-ui', requires = { 'tpope/vim-dadbod' } }
@@ -156,9 +174,6 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   group = highlight_group,
   pattern = '*',
 })
-
--- Enable mason
-require('mason').setup()
 
 -- Enable nvimtree
 require('nvim-tree').setup()
@@ -346,12 +361,12 @@ end
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 -- Enable the following language servers
-local servers = { 'clangd', 'rust_analyzer', 'pyright', 'tsserver', 'sumneko_lua' }
+local servers = { 'clangd', 'intelephense', 'gopls', 'rust_analyzer', 'pyright', 'tsserver', 'sumneko_lua' }
 
 -- Ensure the servers above are installed
--- require('nvim-lsp-installer').setup {
---   ensure_installed = servers,
--- }
+require('mason-lspconfig').setup({
+  ensure_installed = servers,
+})
 
 for _, lsp in ipairs(servers) do
   require('lspconfig')[lsp].setup {
@@ -361,7 +376,7 @@ for _, lsp in ipairs(servers) do
 end
 
 -- Example custom configuration for lua
---
+
 -- Make runtime files discoverable to the server
 local runtime_path = vim.split(package.path, ';')
 table.insert(runtime_path, 'lua/?.lua')
