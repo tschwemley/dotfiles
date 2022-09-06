@@ -9,16 +9,19 @@ end
 
 -- stylua: ignore start
 require('packer').startup(function(use)
-  use 'wbthomason/packer.nvim'                                                    -- Package manager
+  use 'wbthomason/packer.nvim'                        -- Package manager
 
-  use 'tpope/vim-fugitive'                                                        -- Git commands in nvim
-  use 'tpope/vim-rhubarb'                                                         -- Fugitive-companion to interact with github
-  use { 'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' } }       -- Add git related info in the signs columns and popups
+  use 'tpope/vim-fugitive'                            -- Git commands in nvim
+  use 'tpope/vim-rhubarb'                             -- Fugitive-companion to interact with github
+  use {                                               -- Add git related info in the signs columns and popups
+    'lewis6991/gitsigns.nvim',
+    requires = { 'nvim-lua/plenary.nvim' }
+  }
 
-  use 'numToStr/Comment.nvim'                                                     -- "gc" to comment visual regions/lines
+  use 'numToStr/Comment.nvim'                         -- "gc" to comment visual regions/lines
 
-  use 'nvim-treesitter/nvim-treesitter'                                           -- Highlight, edit, and navigate code
-  use 'nvim-treesitter/nvim-treesitter-textobjects'                               -- Additional textobjects for treesitter
+  use 'nvim-treesitter/nvim-treesitter'               -- Highlight, edit, and navigate code
+  use 'nvim-treesitter/nvim-treesitter-textobjects'   -- Additional textobjects for treesitter
 
   use { 'williamboman/mason.nvim',
     config = function ()
@@ -26,10 +29,12 @@ require('packer').startup(function(use)
     end
   } -- Package management for neovim LSP, DAP, Linters, and Formatters
 
+  -- LSP
   use 'williamboman/mason-lspconfig.nvim'
 
   use 'neovim/nvim-lspconfig'
 
+  -- Formatting and Linting
   use {
     'jose-elias-alvarez/null-ls.nvim',
     requires = { 'nvim-lua/plenary.nvim' },
@@ -44,23 +49,32 @@ require('packer').startup(function(use)
     end
   }
 
-
   use { 'hrsh7th/nvim-cmp', requires = { 'hrsh7th/cmp-nvim-lsp' } }               -- Autocompletion
 
   use { 'L3MON4D3/LuaSnip', requires = { 'saadparwaiz1/cmp_luasnip' } }           -- Snippet Engine and Snippet Expansion
 
   use 'sainnhe/everforest'
+
   use 'nvim-lualine/lualine.nvim'                                                 -- Fancier statusline
+  
   use 'lukas-reineke/indent-blankline.nvim'                                       -- Add indentation guides even on blank lines
 
   use 'tpope/vim-sleuth'                                                          -- Detect tabstop and shiftwidth automatically
 
   use { 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim' } } -- Fuzzy Finder (files, lsp, etc)
 
+  use { 'folke/which-key.nvim',
+    config = function ()
+      require("which-key").setup()
+    end
+  }
+
   use {
     'kyazdani42/nvim-tree.lua',
     requires = { 'kyazdani42/nvim-web-devicons', }, -- optional, for file icons 
-    tag = 'nightly' -- optional, updated every week. (see issue #1193)
+    config = function ()
+      require('nvim-tree').setup()
+    end
   }
 
   -- lua with packer.nvim
@@ -114,55 +128,8 @@ vim.api.nvim_create_autocmd('BufWritePost', {
   pattern = vim.fn.expand '$MYVIMRC',
 })
 
--- [[ Setting options ]]
--- See `:help vim.o`
-
--- Set highlight on search
-vim.o.hlsearch = false
-
--- Make line numbers default
-vim.wo.number = true
-
--- Make relative line numbers default
-vim.wo.relativenumber = true
-
--- Enable mouse mode
-vim.o.mouse = 'a'
-
--- Enable break indent
-vim.o.breakindent = true
-
--- Save undo history
-vim.o.undofile = true
-
--- Case insensitive searching UNLESS /C or capital in search
-vim.o.ignorecase = true
-vim.o.smartcase = true
-
--- Decrease update time
-vim.o.updatetime = 250
-vim.wo.signcolumn = 'yes'
-
--- Set colorscheme
-vim.o.termguicolors = true
-vim.g.everforest_background = 'soft'
-vim.cmd [[colorscheme everforest]]
-
--- Set completeopt to have a better completion experience
-vim.o.completeopt = 'menuone,noselect'
-
--- [[ Basic Keymaps ]]
--- Set <space> as the leader key
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
-
--- Keymaps for better default experience
--- See `:help vim.keymap.set()`
-vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
-
--- Remap for dealing with word wrap
-vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
-vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+require("options")
+require("keymaps")
 
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`
@@ -175,10 +142,6 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   pattern = '*',
 })
 
--- Enable nvimtree
-require('nvim-tree').setup()
-
--- Enable Better Escape
 -- lua, default settings
 -- Set lualine as statusline
 -- See `:help lualine.txt`
@@ -250,7 +213,7 @@ vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { de
 -- See `:help nvim-treesitter`
 require('nvim-treesitter.configs').setup {
   -- Add languages to be installed here that you want installed for treesitter
-  ensure_installed = { 'lua', 'typescript', 'rust', 'go', 'python', 'php' },
+  ensure_installed = { 'bash', 'lua', 'typescript', 'rust', 'go', 'python', 'php' },
 
   highlight = { enable = true },
   indent = { enable = true },
@@ -308,12 +271,6 @@ require('nvim-treesitter.configs').setup {
   },
 }
 
--- Diagnostic keymaps
-vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
-vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
-vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float)
-vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist)
-
 -- LSP settings.
 --  This function gets run when an LSP connects to a particular buffer.
 local on_attach = function(_, bufnr)
@@ -361,21 +318,20 @@ end
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 -- Enable the following language servers
-local servers = { 'clangd', 'intelephense', 'gopls', 'rust_analyzer', 'pyright', 'tsserver', 'sumneko_lua' }
+local servers = { 'bashls', 'intelephense', 'gopls', 'rust_analyzer', 'pyright', 'tsserver', 'sumneko_lua' }
 
 -- Ensure the servers above are installed
 require('mason-lspconfig').setup({
   ensure_installed = servers,
 })
 
+-- Setup the LSP servers
 for _, lsp in ipairs(servers) do
   require('lspconfig')[lsp].setup {
     on_attach = on_attach,
     capabilities = capabilities,
   }
 end
-
--- Example custom configuration for lua
 
 -- Make runtime files discoverable to the server
 local runtime_path = vim.split(package.path, ';')
@@ -445,12 +401,6 @@ cmp.setup {
     { name = 'luasnip' },
   },
 }
-
--- Custom keymaps
-vim.keymap.set({ 'n', 'v' }, '<C-h>', '<C-w>h')
-vim.keymap.set({ 'n', 'v' }, '<C-j>', '<C-w>j')
-vim.keymap.set({ 'n', 'v' }, '<C-k>', '<C-w>k')
-vim.keymap.set({ 'n', 'v' }, '<C-l>', '<C-w>l')
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
