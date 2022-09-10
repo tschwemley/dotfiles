@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # taken from: https://www.atlassian.com/git/tutorials/dotfiles
 git clone --bare https://github.com/tschwemley/dotfiles $HOME/.cfg
