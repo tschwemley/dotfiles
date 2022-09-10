@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # taken from: https://www.atlassian.com/git/tutorials/dotfiles
-git clone --bare https://bitbucket.org/durdn/cfg.git $HOME/.cfg
+git clone --bare https://github.com/tschwemley/dotfiles $HOME/.cfg
 function config {
    /usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME $@
 }
