@@ -11,13 +11,12 @@ an executable
 -- general
 lvim.log.level = "warn"
 lvim.format_on_save = true
-lvim.colorscheme = "onedarker"
--- to disable icons and use a minimalist setup, uncomment the following
--- lvim.use_icons = false
+lvim.colorscheme = "gruvbox-material"
+lvim.builtin.lualine.options.theme = "gruvbox-material"
+-- lvim.builtin.bufferline.options.indicator_icon
 
 -- keymappings [view all the defaults by pressing <leader>Lk]
 lvim.leader = "space"
-
 
 -- Toggle key mappings
 
@@ -84,7 +83,7 @@ lvim.builtin.treesitter.ensure_installed = {
   "rust",
   "typescript",
   "tsx",
-  "yaml",
+  "yaml"
 }
 
 lvim.builtin.treesitter.ignore_install = { "haskell" }
@@ -166,6 +165,10 @@ lvim.builtin.treesitter.highlight.enabled = true
 -- }
 
 -- Additional Plugins
+lvim.plugins = {
+  { "sainnhe/everforest" },
+  { "sainnhe/gruvbox-material" },
+}
 -- lvim.plugins = {
 --     {"folke/tokyonight.nvim"},
 --     {
