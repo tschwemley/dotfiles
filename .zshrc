@@ -10,7 +10,7 @@ fi
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
-[ -f ~/.bash_aliases ] && source ~/.bash_aliases
+[ -f ~/.dotfiles/aliases.sh ] && source ~/.dotfiles/aliases.sh
 
 source ~/.config/powerlevel10k/powerlevel10k.zsh-theme
 
