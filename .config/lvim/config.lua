@@ -13,6 +13,9 @@ lvim.log.level = "warn"
 lvim.format_on_save = true
 lvim.colorscheme = "gruvbox-material"
 lvim.builtin.lualine.options.theme = "gruvbox-material"
+
+vim.g.gruvbox_material_background = 'medium'
+vim.g.gruvbox_material_foreground = 'material'
 -- lvim.builtin.bufferline.options.indicator_icon
 
 -- keymappings [view all the defaults by pressing <leader>Lk]
@@ -167,6 +170,9 @@ lvim.builtin.treesitter.highlight.enabled = true
 
 -- Additional Plugins
 lvim.plugins = {
+  -- Aesthetics
+  { "ellisonleao/glow.nvim" }, -- Markdown renderer
+
   -- Themes
   { "sainnhe/everforest" },
   { "sainnhe/gruvbox-material" },

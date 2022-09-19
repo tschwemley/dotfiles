@@ -1,0 +1,11 @@
+[core]
+  editor=lvim
+[user]
+	name = Tyler Schwemley
+  email = me@tylerschwemley.com
+[alias]
+  b = branch
+  bd = !git branch -D
+  co = checkout
+  cm = !git add -A && git commit -m
+  s = status
