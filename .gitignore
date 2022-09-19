@@ -1,0 +1,3 @@
+.cfg/
+.config/lvim/plugin/packer_compiled.lua
+.local/bin/lvim
