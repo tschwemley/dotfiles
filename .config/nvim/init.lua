@@ -128,7 +128,7 @@ vim.api.nvim_create_autocmd('BufWritePost', {
   pattern = vim.fn.expand '$MYVIMRC',
 })
 
-require("options")
+-- require("options")
 require("keymaps")
 
 -- [[ Highlight on yank ]]
