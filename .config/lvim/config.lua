@@ -6,19 +6,21 @@ filled in as strings with either
 a global executable or a path to
 an executable
 ]]
--- THESE ARE EXAMPLE CONFIGS FEEL FREE TO CHANGE TO WHATEVER YOU WANT
 
--- general
+--------------------------------- Options -------------------------------------
+lvim.colorscheme = "gruvbox-material"
+vim.opt.relativenumber = true
+
+-- LunarVim Options
 lvim.log.level = "warn"
 lvim.format_on_save = false
-lvim.colorscheme = "gruvbox-material"
-lvim.builtin.lualine.options.theme = "gruvbox-material"
+-------------------------------------------------------------------------------
 
-vim.g.gruvbox_material_background = 'medium'
-vim.g.gruvbox_material_foreground = 'material'
-
--- keymappings [view all the defaults by pressing <leader>Lk]
+------------------------------- Keymappings -----------------------------------
 lvim.leader = "space"
+-------------------------------------------------------------------------------
+
+-- TODO: everything below here needs organized
 
 -- TODO: User Config for predefined plugins
 -- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
@@ -52,9 +54,21 @@ lvim.lsp.installer.setup.ensure_installed = {
   "go",
 }
 
--- Debugging
+--------------------------------- Debugging -----------------------------------
+
 lvim.builtin.dap.on_config_done = function()
   local dap = require("dap")
+  -- local widgets = require("dap.ui.widgets")
+
+  -- Show repl on start
+  -- dap.listeners.before["event_initialized"]["personal-config"] = function (session, body)
+  dap.listeners.before["event_initialized"]["personal-config"] = function(session, body)
+    dap.repl.open()
+  end
+
+  dap.listeners.before["event_stopped"]["personal-config"] = function(session, body)
+    dap.repl.close()
+  end
 
   dap.adapters.delve = {
     type = 'server',
@@ -91,6 +105,8 @@ lvim.builtin.dap.on_config_done = function()
   }
 end
 
+-------------------------------------------------------------------------------
+
 -- Additional Plugins
 lvim.plugins = {
   -- Aesthetics
@@ -105,7 +121,13 @@ lvim.plugins = {
   { "sainnhe/gruvbox-material" },
 
   -- Treesitter
-  { "ray-x/lsp_signature.nvim" },
+  {
+    "ray-x/lsp_signature.nvim",
+    config = function()
+      -- Config options: https://github.com/ray-x/lsp_signature.nvim#full-configuration-with-default-values
+      require("lsp_signature").setup()
+    end
+  },
   { "p00f/nvim-ts-rainbow" },
   {
     "romgrk/nvim-treesitter-context",
@@ -164,15 +186,16 @@ lvim.plugins = {
       }
     end,
     requires = "nvim-lua/plenary.nvim"
-  },
+  }
 }
 
--- Autocommands (https://neovim.io/doc/user/autocmd.html)
+    -- Autocommands (https://neovim.io/doc/user/autocmd.html)
 vim.api.nvim_create_autocmd("BufEnter", {
   pattern = { "*.json", "*.jsonc" },
   -- enable wrap mode for json files only
   command = "setlocal wrap",
 })
+
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "zsh",
   callback = function()
@@ -180,3 +203,5 @@ vim.api.nvim_create_autocmd("FileType", {
     require("nvim-treesitter.highlight").attach(0, "bash")
   end,
 })
+
+lvim.builtin.lualine.options.theme = "gruvbox-material"
