@@ -2,15 +2,15 @@ local M = {}
 
 M.adapters = {
   type = "executable",
-  --command = "node",
+  command = "node",
 }
 
 M.configuration = {
   {
-    type = 'php',
-    request = 'launch',
-    name = 'Listen for Xdebug',
-    port = 9000
+    type = "php",
+    request = "launch",
+    name = "Listen for Xdebug",
+    port = 9095,
   }
 }
 

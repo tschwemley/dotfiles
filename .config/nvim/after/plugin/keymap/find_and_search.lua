@@ -2,14 +2,15 @@ local h = require("schwem.helpers")
 -- todo: decide if keeping f variants, deleting, or splitting
 
 -- buffers
-h.nnoremap("<leader>sm", ":Telescope buffers<CR>")
+h.nnoremap("<leader>fb", ":Telescope buffers<CR>")
+h.nnoremap("<leader><enter>", ":Telescope current_buffer_fuzzy_find<CR>")
 
 -- files
 h.nnoremap("<leader>ff", ":Telescope find_files<CR>")
 h.nnoremap("<leader>sf", ":Telescope find_files<CR>")
 
 -- help
-h.nnoremap("<leader>sm", ":Telescope help_tags<CR>")
+h.nnoremap("<leader>sh", ":Telescope help_tags<CR>")
 
 -- man pages
 h.nnoremap("<leader>sm", ":Telescope man_pages<CR>")

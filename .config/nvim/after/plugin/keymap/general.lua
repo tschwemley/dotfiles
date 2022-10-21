@@ -8,4 +8,3 @@ h.nnoremap("<leader>e", ":NvimTreeToggle<CR>")
 
 h.nmap("<leader>/", "gcc")
 h.vmap("<leader>/", "gc")
---h.imap("", "")
