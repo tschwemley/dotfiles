@@ -35,9 +35,12 @@ dap.listeners.before.event_exited["dapui_config"] = function()
 end
 
 -- Configure languages
+require("dap-go").setup()
+
 -- todo: make this more elegant
 dap.adapters.php = require("schwem.debuggers.php").adapters
 dap.configurations.php = require("schwem.debuggers.php").configuration
+
 
 -- Enable completion for dap repl
 local cmp = require("cmp")

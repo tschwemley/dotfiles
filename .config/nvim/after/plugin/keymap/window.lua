@@ -1,6 +1,6 @@
-local h = require("schwem.helpers")
+local km = require('schwem.util.keymap')
 
-h.nnoremap("<C-h>", "<C-w>h")
-h.nnoremap("<C-l>", "<C-w>l")
-h.nnoremap("<C-j>", "<C-w>j")
-h.nnoremap("<C-k>", "<C-w>k")
+km.nnoremap("<C-h>", "<C-w>h")
+km.nnoremap("<C-l>", "<C-w>l")
+km.nnoremap("<C-j>", "<C-w>j")
+km.nnoremap("<C-k>", "<C-w>k")

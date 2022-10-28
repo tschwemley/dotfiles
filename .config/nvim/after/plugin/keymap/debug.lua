@@ -1,8 +1,8 @@
-local h = require("schwem.helpers")
+local km = require("schwem.util.keymap")
 
-h.nnoremap("<leader>ds", "DapStart<CR>")
-h.nnoremap("<leader>dc", "DapContinue<CR>")
+km.nnoremap("<leader>ds", "DapStart<CR>")
+km.nnoremap("<leader>dc", "DapContinue<CR>")
 
-h.nnoremap("<leader>dt", "DapToggleBreakpoint<CR>")
-h.nnoremap("<leader>di", "DapInto<CR>")
-h.nnoremap("<leader>do", "DapOver<CR>")
+km.nnoremap("<leader>dt", "DapToggleBreakpoint<CR>")
+km.nnoremap("<leader>di", "DapInto<CR>")
+km.nnoremap("<leader>do", "DapOver<CR>")

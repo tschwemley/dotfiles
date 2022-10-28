@@ -1,11 +1,11 @@
-local h = require('schwem.helpers')
+local km = require('schwem.util.keymap')
 
-h.nnoremap("<leader>c",  ":bd<CR>")
-h.nnoremap("<leader>bb", ":bp<CR>")
-h.nnoremap("<leader>bn", ":bn<CR>")
+km.nnoremap("<leader>c",  ":bd<CR>")
+km.nnoremap("<leader>bb", ":bp<CR>")
+km.nnoremap("<leader>bn", ":bn<CR>")
 
-h.nnoremap("<leader>bj", ":BufferLinePick<CR>")
-h.nnoremap("<leader>bh", ":BufferLineCloseLeft<CR>")
-h.nnoremap("<leader>bl", ":BufferLineCloseRight<CR>")
+km.nnoremap("<leader>bj", ":BufferLinePick<CR>")
+km.nnoremap("<leader>bh", ":BufferLineCloseLeft<CR>")
+km.nnoremap("<leader>bl", ":BufferLineCloseRight<CR>")
 
-h.nnoremap("<leader>bf", ":Telescope buffers<CR>")
+km.nnoremap("<leader>bf", ":Telescope buffers<CR>")

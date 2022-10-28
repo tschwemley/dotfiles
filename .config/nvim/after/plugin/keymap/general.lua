@@ -1,10 +1,12 @@
-local h = require('schwem.helpers')
+local km = require('schwem.util.keymap')
 
 -- todo: better organize
-h.inoremap("jk", "<esc>")
-h.nnoremap("<leader>w", ":w!<CR>")
+km.inoremap("jk", "<esc>")
+km.nnoremap("<leader>w", ":w!<CR>")
 
-h.nnoremap("<leader>e", ":NvimTreeToggle<CR>")
+km.nnoremap("<leader>e", ":NvimTreeToggle<CR>")
 
-h.nmap("<leader>/", "gcc")
-h.vmap("<leader>/", "gc")
+km.nmap("<leader>/", "gcc")
+km.vmap("<leader>/", "gc")
+
+--km.snnoremap("n", "<leader>g", "<cmd>lua lazygit_toggle()<CR>", {noremap = true, silent = true})

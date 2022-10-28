@@ -1,9 +1,8 @@
-local h = require("schwem.helpers")
+local km = require('schwem.util.keymap')
 
--- todo: lazygit
---h.nnoremap("<leader>gg", ":Telescope<CR>")
-h.nnoremap("<leader>gl", ":Telescope<CR>")
-h.nnoremap("<leader>gh", ":Telescope git_bcommits<CR>")
-h.nnoremap("<leader>gl", ":Telescope<CR>")
+km.snnoremap("<leader>gg", "<cmd>lua lazygit_toggle()<CR>")
+km.nnoremap("<leader>gl", ":Telescope<CR>")
+km.nnoremap("<leader>gh", ":Telescope git_bcommits<CR>")
+km.nnoremap("<leader>gl", ":Telescope<CR>")
 
 
