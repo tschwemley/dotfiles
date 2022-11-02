@@ -169,11 +169,6 @@ _G.packer_plugins = {
     path = "/home/tschwemley/.local/share/nvim/site/pack/packer/start/mind.nvim",
     url = "https://github.com/phaazon/mind.nvim"
   },
-  ["mkdnflow.nvim"] = {
-    loaded = true,
-    path = "/home/tschwemley/.local/share/nvim/site/pack/packer/start/mkdnflow.nvim",
-    url = "https://github.com/jakewvincent/mkdnflow.nvim"
-  },
   neorg = {
     load_after = {},
     loaded = true,
@@ -260,11 +255,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/tschwemley/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
-  },
-  ["shade.nvim"] = {
-    loaded = true,
-    path = "/home/tschwemley/.local/share/nvim/site/pack/packer/start/shade.nvim",
-    url = "https://github.com/sunjon/shade.nvim"
   },
   ["telescope.nvim"] = {
     loaded = true,

@@ -1,5 +1,5 @@
 local autocmd = vim.api.nvim_create_autocmd
-local afterlua = vim.env.HOME .. "/.config/nvim/after"
+-- local afterlua = vim.env.HOME .. "/.config/nvim/after"
 local schwemlua = vim.env.HOME .. "/.config/lua/"
 
 -- Automatically source lua files on save
@@ -11,10 +11,11 @@ autocmd(
   }
 )
 
-autocmd(
-  'BufWritePost',
-  {
-    pattern = afterlua .. "/*",
-    command = "source %"
-  }
-)
+-- TODO: fix
+-- autocmd(
+--   'BufWritePost',
+--   {
+--     pattern = afterlua .. "/*",
+--     command = "source %"
+--   }
+-- )

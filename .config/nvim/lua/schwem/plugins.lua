@@ -1,7 +1,7 @@
 local ensure_packer = function()
   local fn = vim.fn
   local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
-  if fn.empty(fn.glob(install_path)) > 0 then
+  if not PackerInstalled(install_path) then
     fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
     vim.cmd [[packadd packer.nvim]]
     return true
@@ -10,12 +10,10 @@ local ensure_packer = function()
 end
 
 local packer_bootstrap = ensure_packer()
-
 return require("packer").startup(function(use)
   -- Aesthetics
   use("sainnhe/everforest")
   use("sainnhe/gruvbox-material")
-  use("sunjon/shade.nvim")
 
   -- Completion and Snippets
   use("hrsh7th/nvim-cmp")
@@ -63,7 +61,7 @@ return require("packer").startup(function(use)
     "jose-elias-alvarez/null-ls.nvim",
     requires = { "nvim-lua/plenary.nvim" }
   })
-  use('jayp0521/mason-null-ls.nvim')
+  use("jayp0521/mason-null-ls.nvim")
 
   -- Navigation and buffer/statusline
   use({
@@ -92,10 +90,10 @@ return require("packer").startup(function(use)
     branch = 'v2.2',
     requires = { 'nvim-lua/plenary.nvim' },
   })
-  use({
-    "jakewvincent/mkdnflow.nvim",
-    rocks = 'luautf8', -- Ensures optional luautf8 dependency is installed
-  })
+  -- use({
+  --   "jakewvincent/mkdnflow.nvim",
+  --   rocks = 'luautf8', -- Ensures optional luautf8 dependency is installed
+  -- })
 
   -- Telescope
   use({

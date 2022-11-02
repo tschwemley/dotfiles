@@ -9,10 +9,13 @@ km.nnoremap("<space>f", ":Telescope find_files<CR>")
 km.nnoremap("<leader>sf", ":Telescope find_files<CR>")
 
 -- km.lp
-km.nnoremap("<leader>sh", ":Telescope help_tags<CR>")
+km.nnoremap("<leader>sf", ":Telescope find_files<CR>")
+
+km.nnoremap("<leader>sk", ":Telescope keymaps<CR>")
 
 -- man pages
 km.nnoremap("<leader>sm", ":Telescope man_pages<CR>")
+
 
 -- old files
 km.nnoremap("<leader>so", ":Telescope oldfiles<CR>")

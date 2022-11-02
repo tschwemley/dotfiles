@@ -1,4 +1,4 @@
-local km = require('schwem.util.keymap')
+local km = require("schwem.util.keymap")
 
 -- todo: better organize
 km.inoremap("jk", "<esc>")
@@ -6,7 +6,11 @@ km.nnoremap("<leader>w", ":w!<CR>")
 
 km.nnoremap("<leader>e", ":NvimTreeToggle<CR>")
 
-km.nmap("<leader>/", "gcc")
-km.vmap("<leader>/", "gc")
+-- Toggle current line or with count
+km.nnoremap("<leader>/", function()
+    return vim.v.count == 0
+        and "<Plug>(comment_toggle_linewise_current)"
+        or "<Plug>(comment_toggle_linewise_count)"
+end, { expr = true })
+km.vnoremap("<leader>/", "<Plug>(comment_toggle_linewise_visual)")
 
---km.snnoremap("n", "<leader>g", "<cmd>lua lazygit_toggle()<CR>", {noremap = true, silent = true})

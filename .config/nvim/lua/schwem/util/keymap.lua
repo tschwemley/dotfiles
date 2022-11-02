@@ -13,11 +13,11 @@ end
 
 M.imap = bind("i")
 M.nmap = bind("n")
-M.vmap = bind("v")
+M.vmap = bind("x")
 
 M.inoremap = bind("i", { noremap = true })
 M.nnoremap = bind("n", { noremap = true })
-M.vnoremap = bind("v", { noremap = true })
+M.vnoremap = bind("x", { noremap = true })
 
 M.snnoremap = bind("n", { noremap = true, silent = true })
 
