@@ -79,6 +79,13 @@ _G.packer_plugins = {
     path = "/home/tschwemley/.local/share/nvim/site/pack/packer/start/LuaSnip",
     url = "https://github.com/L3MON4D3/LuaSnip"
   },
+  ["better-escape.vim"] = {
+    loaded = false,
+    needs_bufread = false,
+    only_cond = false,
+    path = "/home/tschwemley/.local/share/nvim/site/pack/packer/opt/better-escape.vim",
+    url = "https://github.com/jdhao/better-escape.vim"
+  },
   ["bufferline.nvim"] = {
     loaded = true,
     path = "/home/tschwemley/.local/share/nvim/site/pack/packer/start/bufferline.nvim",
@@ -236,6 +243,11 @@ _G.packer_plugins = {
     path = "/home/tschwemley/.local/share/nvim/site/pack/packer/start/nvim-ts-rainbow",
     url = "https://github.com/p00f/nvim-ts-rainbow"
   },
+  ["nvim-ufo"] = {
+    loaded = true,
+    path = "/home/tschwemley/.local/share/nvim/site/pack/packer/start/nvim-ufo",
+    url = "https://github.com/kevinhwang91/nvim-ufo"
+  },
   ["nvim-web-devicons"] = {
     loaded = true,
     path = "/home/tschwemley/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
@@ -256,6 +268,11 @@ _G.packer_plugins = {
     path = "/home/tschwemley/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
   },
+  ["promise-async"] = {
+    loaded = true,
+    path = "/home/tschwemley/.local/share/nvim/site/pack/packer/start/promise-async",
+    url = "https://github.com/kevinhwang91/promise-async"
+  },
   ["telescope.nvim"] = {
     loaded = true,
     path = "/home/tschwemley/.local/share/nvim/site/pack/packer/start/telescope.nvim",
@@ -271,11 +288,6 @@ _G.packer_plugins = {
     path = "/home/tschwemley/.local/share/nvim/site/pack/packer/start/toggleterm.nvim",
     url = "https://github.com/akinsho/toggleterm.nvim"
   },
-  ["vim-sleuth"] = {
-    loaded = true,
-    path = "/home/tschwemley/.local/share/nvim/site/pack/packer/start/vim-sleuth",
-    url = "https://github.com/tpope/vim-sleuth"
-  },
   ["which-key.nvim"] = {
     loaded = true,
     path = "/home/tschwemley/.local/share/nvim/site/pack/packer/start/which-key.nvim",
@@ -290,6 +302,13 @@ vim.cmd [[ packadd telescope.nvim ]]
 vim.cmd [[ packadd nvim-treesitter ]]
 vim.cmd [[ packadd neorg ]]
 time([[Sequenced loading]], false)
+vim.cmd [[augroup packer_load_aucmds]]
+vim.cmd [[au!]]
+  -- Event lazy-loads
+time([[Defining lazy-load event autocommands]], true)
+vim.cmd [[au InsertEnter * ++once lua require("packer.load")({'better-escape.vim'}, { event = "InsertEnter *" }, _G.packer_plugins)]]
+time([[Defining lazy-load event autocommands]], false)
+vim.cmd("augroup END")
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then

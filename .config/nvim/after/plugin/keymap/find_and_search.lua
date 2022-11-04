@@ -8,9 +8,10 @@ km.nnoremap("<leader><enter>", ":Telescope current_buffer_fuzzy_find<CR>")
 km.nnoremap("<space>f", ":Telescope find_files<CR>")
 km.nnoremap("<leader>sf", ":Telescope find_files<CR>")
 
--- km.lp
-km.nnoremap("<leader>sf", ":Telescope find_files<CR>")
+-- help
+km.nnoremap("<leader>sh", ":Telescope help_tags<CR>")
 
+-- keymaps
 km.nnoremap("<leader>sk", ":Telescope keymaps<CR>")
 
 -- man pages

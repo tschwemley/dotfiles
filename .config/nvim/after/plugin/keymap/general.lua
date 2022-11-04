@@ -1,7 +1,6 @@
 local km = require("schwem.util.keymap")
 
 -- todo: better organize
-km.inoremap("jk", "<esc>")
 km.nnoremap("<leader>w", ":w!<CR>")
 
 km.nnoremap("<leader>e", ":NvimTreeToggle<CR>")

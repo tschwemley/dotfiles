@@ -6,4 +6,4 @@ done
 
 
 # Use neovim in place of vim
-alias vim="lvim"
+alias vim="nvim"
