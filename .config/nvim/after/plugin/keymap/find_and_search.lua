@@ -17,7 +17,6 @@ km.nnoremap("<leader>sk", ":Telescope keymaps<CR>")
 -- man pages
 km.nnoremap("<leader>sm", ":Telescope man_pages<CR>")
 
-
 -- old files
 km.nnoremap("<leader>so", ":Telescope oldfiles<CR>")
 

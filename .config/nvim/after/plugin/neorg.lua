@@ -11,5 +11,11 @@ require("neorg").setup({
     },
 
     ["core.norg.concealer"] = {},
+
+    ["core.gtd.base"] = {
+      config = {
+        workspace = "pkm",
+      },
+    },
   }
 })
