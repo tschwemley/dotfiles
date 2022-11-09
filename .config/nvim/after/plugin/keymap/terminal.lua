@@ -1,4 +1,9 @@
 local km = require('schwem.util.keymap')
+local wk = require "which-key"
+
+local terminal_mappings = {
+
+}
 
 function _G.set_terminal_keymaps()
   local opts = {buffer = 0}
@@ -17,3 +22,12 @@ km.snnoremap("<leader>tf", "<cmd>ToggleTerm direction=float<CR>", { silent = tru
 km.snnoremap("<leader>th", "<cmd>ToggleTerm direction=horizontal size=10<CR>", { silent = true })
 km.snnoremap("<leader>tv", "<cmd>ToggleTerm direction=vertical size=80<CR>", { silent = true })
 
+wk.register {
+    ["<leader>t"] = {
+        name = "LSP",
+
+        a = { "<cmd>lua vim.lsp.buf.code_action()<CR>", "Code Action" },
+        f = { "<cmd>lua vim.lsp.buf.format()<CR>", "Format Code" },
+        r = { "<cmd>lua vim.lsp.buf.rename()<CR>", "Rename" },
+    },
+}

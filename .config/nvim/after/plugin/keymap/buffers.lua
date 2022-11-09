@@ -1,11 +1,17 @@
-local km = require('schwem.util.keymap')
+local wk = require "which-key"
 
-km.nnoremap("<leader>c",  ":bd<CR>")
-km.nnoremap("<leader>bb", ":bp<CR>")
-km.nnoremap("<leader>bn", ":bn<CR>")
+wk.register {
+    ["<leader>b"] = {
+        name = "Buffers",
 
-km.nnoremap("<leader>bj", "<Cmd>BufferLinePick<CR>")
-km.nnoremap("<leader>bh", ":BufferLineCloseLeft<CR>")
-km.nnoremap("<leader>bl", ":BufferLineCloseRight<CR>")
+        -- Management
+        f = { ":Telescope buffers<CR>", "List Buffers" },
+        h = { ":BufferLineCloseLeft<cr>", "Close Left Buffers" },
+        l = { ":BufferLineCloseRight<cr>", "Close Right Buffers" },
 
-km.nnoremap("<leader>bf", ":Telescope buffers<CR>")
+        -- Navigation
+        b = { ":bp<cr>", "Prev Buffer" },
+        n = { ":bn<cr>", "Next Buffer" },
+        j = { ":BufferLinePick<cr>", "Jump to Buffer" },
+    },
+}

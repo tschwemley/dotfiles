@@ -1,8 +1,10 @@
-local km = require("schwem.util.keymap")
+local wk = require("which-key")
 
-km.nnoremap("<leader>ds", "DapStart<CR>")
-km.nnoremap("<leader>dc", "DapContinue<CR>")
-
-km.nnoremap("<leader>dt", "DapToggleBreakpoint<CR>")
-km.nnoremap("<leader>di", "DapInto<CR>")
-km.nnoremap("<leader>do", "DapOver<CR>")
+wk.register({
+    ["<leader>d"] = {
+        c = { ":DapContinue<cr>", "Continue" },
+        i = { ":DapInto<cr>", "Step Into" },
+        o = { ":DapOver<cr>", "Step Over" },
+        t = { ":DapToggleBreakpoint<cr>", "Toggle Breakpoint" },
+    }
+})

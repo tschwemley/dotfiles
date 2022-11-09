@@ -1,5 +1,11 @@
-local km = require "schwem.util.keymap"
+local wk = require "which-key"
 
-km.nnoremap("<leader>la", "<cmd>lua vim.lsp.buf.format()<CR>")
-km.nnoremap("<leader>lf", "<cmd>lua vim.lsp.buf.format()<CR>")
-km.nnoremap("<leader>lr", "<cmd>lua vim.lsp.buf.format()<CR>")
+wk.register {
+    ["<leader>l"] = {
+        name = "LSP",
+
+        a = { "<cmd>lua vim.lsp.buf.code_action()<CR>", "Code Action" },
+        f = { "<cmd>lua vim.lsp.buf.format()<CR>", "Format Code" },
+        r = { "<cmd>lua vim.lsp.buf.rename()<CR>", "Rename" },
+    },
+}

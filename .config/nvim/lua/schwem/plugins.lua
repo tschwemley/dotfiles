@@ -40,6 +40,12 @@ return require("packer").startup(function(use)
 
     -- Formatting
     use "numtostr/comment.nvim"
+    -- Lua
+    use {
+        "abecodes/tabout.nvim",
+        after = { "nvim-cmp" }, -- load after plugins that use tab
+        requires = { "nvim-treesitter" },
+    }
     -- use("tpope/vim-sleuth")
 
     -- Git
