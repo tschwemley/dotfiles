@@ -5,13 +5,13 @@ wk.register {
         name = "Buffers",
 
         -- Management
-        f = { ":Telescope buffers<CR>", "List Buffers" },
-        h = { ":BufferLineCloseLeft<cr>", "Close Left Buffers" },
-        l = { ":BufferLineCloseRight<cr>", "Close Right Buffers" },
+        f = { "<cmd>Telescope buffers<CR>", "List Buffers" },
+        h = { "<cmd>BufferLineCloseLeft<cr>", "Close Left Buffers" },
+        l = { "<cmd>BufferLineCloseRight<cr>", "Close Right Buffers" },
 
         -- Navigation
-        b = { ":bp<cr>", "Prev Buffer" },
-        n = { ":bn<cr>", "Next Buffer" },
-        j = { ":BufferLinePick<cr>", "Jump to Buffer" },
+        b = { "<cmd>bp<cr>", "Prev Buffer" },
+        n = { "<cmd>bn<cr>", "Next Buffer" },
+        j = { "<cmd>BufferLinePick<cr>", "Jump to Buffer" },
     },
 }

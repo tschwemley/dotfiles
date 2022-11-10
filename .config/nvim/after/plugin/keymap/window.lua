@@ -1,2 +1,5 @@
-local km = require('schwem.util.keymap')
+local wk = require("which-key")
+
+wk.register({"", ""})
+
 

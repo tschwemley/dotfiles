@@ -1,12 +1,18 @@
-local km = require('schwem.util.keymap')
+-- TODO: I might want to make this [t]oggle instead of [t]erminal
 local wk = require "which-key"
 
-local terminal_mappings = {
+wk.register {
+  ["<leader>t"] = {
+    name = "Terminal",
 
+    f = { "<cmd>ToggleTerm direction=float<CR>", "Floating Terminal" },
+    h = { "<cmd>ToggleTerm direction=float<CR>", "Horizontal Terminal" },
+    v = { "<cmd>ToggleTerm direction=float<CR>", "Veritcal Terminal" },
+  },
 }
 
 function _G.set_terminal_keymaps()
-  local opts = {buffer = 0}
+  local opts = { buffer = 0 }
   vim.keymap.set("t", "<esc>", [[<C-\><C-n>]], opts)
   vim.keymap.set("t", "jk", [[<C-\><C-n>]], opts)
   vim.keymap.set("t", "<C-km.", "<Cmd>wincmd h<CR>", opts)
@@ -16,18 +22,4 @@ function _G.set_terminal_keymaps()
 end
 
 -- if you only want tkm.se mappings for toggle term use term://*toggleterm#* instead
-vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
-
-km.snnoremap("<leader>tf", "<cmd>ToggleTerm direction=float<CR>", { silent = true })
-km.snnoremap("<leader>th", "<cmd>ToggleTerm direction=horizontal size=10<CR>", { silent = true })
-km.snnoremap("<leader>tv", "<cmd>ToggleTerm direction=vertical size=80<CR>", { silent = true })
-
-wk.register {
-    ["<leader>t"] = {
-        name = "LSP",
-
-        a = { "<cmd>lua vim.lsp.buf.code_action()<CR>", "Code Action" },
-        f = { "<cmd>lua vim.lsp.buf.format()<CR>", "Format Code" },
-        r = { "<cmd>lua vim.lsp.buf.rename()<CR>", "Rename" },
-    },
-}
+vim.cmd "autocmd! TermOpen term://* lua set_terminal_keymaps()"
