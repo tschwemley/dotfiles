@@ -17,7 +17,7 @@ km.nnoremap("<leader>/", function()
 end, { expr = true })
 km.vnoremap("<leader>/", "<Plug>(comment_toggle_linewise_visual)")
 
-km.nnoremap("<leader>C", ":e ~/.config/nvim/init.lua<CR>")
+km.nnoremap("<leader>C", "<cmd>e ~/.config/nvim/<cr>")
 
 km.nnoremap("<C-h>", "<C-w>h")
 km.nnoremap("<C-l>", "<C-w>l")

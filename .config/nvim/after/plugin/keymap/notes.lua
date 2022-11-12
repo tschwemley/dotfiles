@@ -5,7 +5,13 @@ wk.register {
     name = "Notes",
 
     c = { "<cmd>Neorg gtd capture<cr>", "Capture" },
-    o = { "<cmd>e ~/notes/index.norg<cr>", "Open Notes" },
+    j = { "<cmd>Neorg workspace pkm<cr><cmd>Neorg journal today<cr>", "Journal" },
+    k = { "<cmd>Neorg kanban toggle<cr>", "Kanban" },
+    o = { "<cmd>Neorg workspace pkm<cr>", "Open Notes" },
     v = { "<cmd>Neorg gtd views<cr>", "Views" },
   },
+}
+
+wk.register {
+    ["<leader>v"] = { "<cmd>lua Toggle_venn()<cr>", "Toggle Venn" }
 }

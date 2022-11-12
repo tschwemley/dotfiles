@@ -141,6 +141,11 @@ _G.packer_plugins = {
     path = "/home/tschwemley/.local/share/nvim/site/pack/packer/start/impatient.nvim",
     url = "https://github.com/lewis6991/impatient.nvim"
   },
+  ["indent-blankline.nvim"] = {
+    loaded = true,
+    path = "/home/tschwemley/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim",
+    url = "https://github.com/lukas-reineke/indent-blankline.nvim"
+  },
   ["leap.nvim"] = {
     loaded = true,
     path = "/home/tschwemley/.local/share/nvim/site/pack/packer/start/leap.nvim",
@@ -177,11 +182,19 @@ _G.packer_plugins = {
     url = "https://github.com/phaazon/mind.nvim"
   },
   neorg = {
+    after = { "neorg-kanban" },
     load_after = {},
     loaded = true,
     needs_bufread = true,
     path = "/home/tschwemley/.local/share/nvim/site/pack/packer/opt/neorg",
     url = "https://github.com/nvim-neorg/neorg"
+  },
+  ["neorg-kanban"] = {
+    load_after = {},
+    loaded = true,
+    needs_bufread = false,
+    path = "/home/tschwemley/.local/share/nvim/site/pack/packer/opt/neorg-kanban",
+    url = "https://github.com/max397574/neorg-kanban"
   },
   ["null-ls.nvim"] = {
     loaded = true,
@@ -273,6 +286,11 @@ _G.packer_plugins = {
     path = "/home/tschwemley/.local/share/nvim/site/pack/packer/start/promise-async",
     url = "https://github.com/kevinhwang91/promise-async"
   },
+  ["symbols-outline.nvim"] = {
+    loaded = true,
+    path = "/home/tschwemley/.local/share/nvim/site/pack/packer/start/symbols-outline.nvim",
+    url = "https://github.com/simrat39/symbols-outline.nvim"
+  },
   ["tabout.nvim"] = {
     load_after = {},
     loaded = true,
@@ -295,6 +313,11 @@ _G.packer_plugins = {
     path = "/home/tschwemley/.local/share/nvim/site/pack/packer/start/toggleterm.nvim",
     url = "https://github.com/akinsho/toggleterm.nvim"
   },
+  ["venn.nvim"] = {
+    loaded = true,
+    path = "/home/tschwemley/.local/share/nvim/site/pack/packer/start/venn.nvim",
+    url = "https://github.com/jbyuki/venn.nvim"
+  },
   ["which-key.nvim"] = {
     loaded = true,
     path = "/home/tschwemley/.local/share/nvim/site/pack/packer/start/which-key.nvim",
@@ -305,11 +328,12 @@ _G.packer_plugins = {
 time([[Defining packer_plugins]], false)
 -- Load plugins in order defined by `after`
 time([[Sequenced loading]], true)
+vim.cmd [[ packadd telescope.nvim ]]
 vim.cmd [[ packadd nvim-treesitter ]]
+vim.cmd [[ packadd neorg ]]
+vim.cmd [[ packadd neorg-kanban ]]
 vim.cmd [[ packadd nvim-cmp ]]
 vim.cmd [[ packadd tabout.nvim ]]
-vim.cmd [[ packadd telescope.nvim ]]
-vim.cmd [[ packadd neorg ]]
 time([[Sequenced loading]], false)
 vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]

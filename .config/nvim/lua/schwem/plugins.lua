@@ -1,137 +1,141 @@
 local ensure_packer = function()
-    local fn = vim.fn
-    local install_path = fn.stdpath "data" .. "/site/pack/packer/start/packer.nvim"
-    if not PackerInstalled(install_path) then
-        fn.system { "git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path }
-        vim.cmd [[packadd packer.nvim]]
-        return true
-    end
-    return false
+  local fn = vim.fn
+  local install_path = fn.stdpath "data" .. "/site/pack/packer/start/packer.nvim"
+  if not PackerInstalled(install_path) then
+    fn.system { "git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path }
+    vim.cmd [[packadd packer.nvim]]
+    return true
+  end
+  return false
 end
 
 local packer_bootstrap = ensure_packer()
 return require("packer").startup(function(use)
-    -- Aesthetics
-    use "sainnhe/everforest"
-    use "sainnhe/gruvbox-material"
+  -- Aesthetics
+  use "sainnhe/everforest"
+  use "sainnhe/gruvbox-material"
 
-    -- Completion and Snippets
-    use "hrsh7th/nvim-cmp"
-    use "hrsh7th/cmp-buffer"
-    use "hrsh7th/cmp-cmdline"
-    use "hrsh7th/cmp-nvim-lsp"
-    use "hrsh7th/cmp-path"
-    use "rcarriga/cmp-dap"
-    use { "L3MON4D3/LuaSnip", tag = "v1.*" }
+  -- Completion and Snippets
+  use "hrsh7th/nvim-cmp"
+  use "hrsh7th/cmp-buffer"
+  use "hrsh7th/cmp-cmdline"
+  use "hrsh7th/cmp-nvim-lsp"
+  use "hrsh7th/cmp-path"
+  use "rcarriga/cmp-dap"
+  use { "L3MON4D3/LuaSnip", tag = "v1.*" }
 
-    -- Debugging
-    use "mfussenegger/nvim-dap"
-    use "rcarriga/nvim-dap-ui"
-    use "theHamsta/nvim-dap-virtual-text"
-    use "leoluz/nvim-dap-go"
-    use "jayp0521/mason-nvim-dap.nvim"
+  -- Debugging
+  use "mfussenegger/nvim-dap"
+  use "rcarriga/nvim-dap-ui"
+  use "theHamsta/nvim-dap-virtual-text"
+  use "leoluz/nvim-dap-go"
+  use "jayp0521/mason-nvim-dap.nvim"
 
-    -- Dependency & Package Management
-    use "wbthomason/packer.nvim"
-    use "williamboman/mason.nvim"
+  -- Dependency & Package Management
+  use "wbthomason/packer.nvim"
+  use "williamboman/mason.nvim"
 
-    -- Editing
-    use { "kylechui/nvim-surround", tag = "*" }
+  -- Editing
+  use { "kylechui/nvim-surround", tag = "*" }
 
-    -- Formatting
-    use "numtostr/comment.nvim"
-    -- Lua
-    use {
-        "abecodes/tabout.nvim",
-        after = { "nvim-cmp" }, -- load after plugins that use tab
-        requires = { "nvim-treesitter" },
-    }
-    -- use("tpope/vim-sleuth")
+  -- Formatting
+  use "numtostr/comment.nvim"
+  use "lukas-reineke/indent-blankline.nvim"
 
-    -- Git
-    use {
-        "pwntester/octo.nvim",
-        requires = {
-            "nvim-lua/plenary.nvim",
-            "nvim-telescope/telescope.nvim",
-            "nvim-tree/nvim-web-devicons",
-        },
-    }
+  -- Lua
+  use {
+    "abecodes/tabout.nvim",
+    after = { "nvim-cmp" }, -- load after plugins that use tab
+    requires = { "nvim-treesitter" },
+  }
+  -- use("tpope/vim-sleuth")
 
-    -- LSP
-    use "folke/todo-comments.nvim"
-    use "neovim/nvim-lspconfig"
-    use "williamboman/mason-lspconfig.nvim"
-    use {
-        "jose-elias-alvarez/null-ls.nvim",
-        requires = { "nvim-lua/plenary.nvim" },
-    }
-    use "jayp0521/mason-null-ls.nvim"
+  -- Git
+  use {
+    "pwntester/octo.nvim",
+    requires = {
+      "nvim-lua/plenary.nvim",
+      "nvim-telescope/telescope.nvim",
+      "nvim-tree/nvim-web-devicons",
+    },
+  }
 
-    -- Navigation and buffer/statusline
-    use {
-        "akinsho/bufferline.nvim",
-        tag = "v2.*",
-        requires = "nvim-tree/nvim-web-devicons",
-    }
-    use { "ellisonleao/glow.nvim" }
-    use "ggandor/leap.nvim"
-    use {
-        "nvim-tree/nvim-tree.lua",
-        requires = { "nvim-tree/nvim-web-devicons" },
-    }
-    use {
-        "nvim-lualine/lualine.nvim",
-        requires = { "nvim-tree/nvim-web-devicons", opt = true },
-    }
+  -- LSP
+  use "folke/todo-comments.nvim"
+  use "neovim/nvim-lspconfig"
+  use "williamboman/mason-lspconfig.nvim"
+  use {
+    "jose-elias-alvarez/null-ls.nvim",
+    requires = { "nvim-lua/plenary.nvim" },
+  }
+  use "jayp0521/mason-null-ls.nvim"
+  use "simrat39/symbols-outline.nvim"
 
-    -- Notes
-    use {
-        "nvim-neorg/neorg",
-        after = { "nvim-treesitter", "telescope.nvim" },
-        -- run = ":Neorg sync-parsers",
-    }
-    use {
-        "phaazon/mind.nvim",
-        branch = "v2.2",
-        requires = { "nvim-lua/plenary.nvim" },
-    }
-    -- use({
-    --   "jakewvincent/mkdnflow.nvim",
-    --   rocks = 'luautf8', -- Ensures optional luautf8 dependency is installed
-    -- })
+  -- Navigation and buffer/statusline
+  use {
+    "akinsho/bufferline.nvim",
+    tag = "v2.*",
+    requires = "nvim-tree/nvim-web-devicons",
+  }
+  use { "ellisonleao/glow.nvim" }
+  use "ggandor/leap.nvim"
+  use {
+    "nvim-tree/nvim-tree.lua",
+    requires = { "nvim-tree/nvim-web-devicons" },
+  }
+  use {
+    "nvim-lualine/lualine.nvim",
+    requires = { "nvim-tree/nvim-web-devicons", opt = true },
+  }
 
-    -- Telescope
-    use {
-        "nvim-telescope/telescope.nvim",
-        tag = "0.1.*",
-        requires = { "nvim-lua/plenary.nvim" },
-    }
+  -- Notes
+  use {
+    "phaazon/mind.nvim",
+    branch = "v2.2",
+    requires = { "nvim-lua/plenary.nvim" },
+  }
+  use {
+    "nvim-neorg/neorg",
+    after = { "nvim-treesitter", "telescope.nvim" },
+    -- run = ":Neorg sync-parsers",
+  }
+  use {
+    "max397574/neorg-kanban",
+    after = { "neorg" },
+  }
+  use "jbyuki/venn.nvim"
 
-    -- Terminal
-    use { "akinsho/toggleterm.nvim", tag = "*" }
+  -- Telescope
+  use {
+    "nvim-telescope/telescope.nvim",
+    tag = "0.1.*",
+    requires = { "nvim-lua/plenary.nvim" },
+  }
 
-    -- Treesitter
-    use {
-        "nvim-treesitter/nvim-treesitter",
-        run = function()
-            require("nvim-treesitter.install").update { with_sync = true }
-        end,
-    }
-    use "nvim-treesitter/nvim-treesitter-context"
-    use "p00f/nvim-ts-rainbow"
+  -- Terminal
+  use { "akinsho/toggleterm.nvim", tag = "*" }
 
-    -- Util
-    use "folke/which-key.nvim"
-    use { "jdhao/better-escape.vim", event = "InsertEnter" }
-    use {
-        "kevinhwang91/nvim-ufo",
-        requires = "kevinhwang91/promise-async",
-    }
-    use "lewis6991/impatient.nvim"
-    use "nvim-lua/plenary.nvim"
+  -- Treesitter
+  use {
+    "nvim-treesitter/nvim-treesitter",
+    run = function()
+      require("nvim-treesitter.install").update { with_sync = true }
+    end,
+  }
+  use "nvim-treesitter/nvim-treesitter-context"
+  use "p00f/nvim-ts-rainbow"
 
-    if packer_bootstrap then
-        require("packer").sync()
-    end
+  -- Util
+  use "folke/which-key.nvim"
+  use { "jdhao/better-escape.vim", event = "InsertEnter" }
+  use {
+    "kevinhwang91/nvim-ufo",
+    requires = "kevinhwang91/promise-async",
+  }
+  use "lewis6991/impatient.nvim"
+  use "nvim-lua/plenary.nvim"
+
+  if packer_bootstrap then
+    require("packer").sync()
+  end
 end)
