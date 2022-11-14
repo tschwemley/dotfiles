@@ -1,7 +1,22 @@
-vim.cmd(":TSInstall all");
+-- vim.cmd(":TSInstall");
 
 require'nvim-treesitter.configs'.setup {
-    ensure_installed = "all",
+    ensure_installed = {
+        "go",
+        "html",
+        "javascript",
+        "json",
+        "markdown",
+        "norg",
+        "php",
+        "python",
+        "tsx",
+        "typescript",
+        "yaml",
+    },
+
+    auto_install = true,
+
     sync_install = false,
 
     highlight = {
