@@ -21,4 +21,8 @@ M.vnoremap = bind("x", { noremap = true })
 
 M.snnoremap = bind("n", { noremap = true, silent = true })
 
+M.imaplocal = bind("i", { buffer = true } )
+M.nmaplocal = bind("n", { buffer = true } )
+M.vmaplocal = bind("v", { buffer = true } )
+
 return M
