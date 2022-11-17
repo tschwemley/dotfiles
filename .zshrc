@@ -19,3 +19,5 @@ source ~/.config/powerlevel10k/powerlevel10k.zsh-theme
 
 # If running Kitty alias ssh to avoid issues with remotes that don't have terminfo
 [ "$TERM" = "xterm-kitty" ] && alias ssh="kitty +kitten ssh"
+
+autoload -Uz compinit && compinit
