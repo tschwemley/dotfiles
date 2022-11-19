@@ -16,6 +16,10 @@ neorg.setup {
       },
     },
 
+    ["core.integrations.telescope"] = {},
+
+    ["core.keybinds"] = {},
+
     ["core.norg.completion"] = {
       config = {
         engine = "nvim-cmp",
@@ -27,7 +31,7 @@ neorg.setup {
     ["core.norg.dirman"] = {
       config = {
         workspaces = {
-          pkm = "~/notes",
+          pkm = "$HOME/notes",
         },
       },
     },

@@ -196,6 +196,11 @@ _G.packer_plugins = {
     path = "/home/tschwemley/.local/share/nvim/site/pack/packer/opt/neorg-kanban",
     url = "https://github.com/max397574/neorg-kanban"
   },
+  ["neorg-telescope"] = {
+    loaded = true,
+    path = "/home/tschwemley/.local/share/nvim/site/pack/packer/start/neorg-telescope",
+    url = "https://github.com/nvim-neorg/neorg-telescope"
+  },
   ["null-ls.nvim"] = {
     loaded = true,
     path = "/home/tschwemley/.local/share/nvim/site/pack/packer/start/null-ls.nvim",

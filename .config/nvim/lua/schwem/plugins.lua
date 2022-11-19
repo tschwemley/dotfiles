@@ -89,6 +89,7 @@ return require("packer").startup(function(use)
   }
 
   -- Notes
+  -- TODO: decide if going to use mind.nvim
   use {
     "phaazon/mind.nvim",
     branch = "v2.2",
@@ -97,12 +98,14 @@ return require("packer").startup(function(use)
   use {
     "nvim-neorg/neorg",
     after = { "nvim-treesitter", "telescope.nvim" },
+    requires = "nvim-neorg/neorg-telescope", -- Be sure to pull in the repo
     -- run = ":Neorg sync-parsers",
   }
   use {
     "max397574/neorg-kanban",
     after = { "neorg" },
   }
+  -- TODO: decide if going to use venn
   use "jbyuki/venn.nvim"
 
   -- Telescope
