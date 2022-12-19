@@ -21,3 +21,5 @@ source ~/.config/powerlevel10k/powerlevel10k.zsh-theme
 [ "$TERM" = "xterm-kitty" ] && alias ssh="kitty +kitten ssh"
 
 autoload -Uz compinit && compinit
+
+if [ -e /home/$USER/.nix-profile/etc/profile.d/nix.sh ]; then . /home/$USER/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer

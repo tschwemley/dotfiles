@@ -65,7 +65,7 @@ require("lspconfig").sumneko_lua.setup({
         -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
         version = "LuaJIT",
         -- Setup your lua path
-        path = vim.split(package.path, ";"),
+        path = vim.split(";", package.path),
       },
 
       diagnostics = {
@@ -83,3 +83,7 @@ require("lspconfig").sumneko_lua.setup({
     },
   }
 })
+
+-- Setup lsp saga
+local saga = require("lspsaga")
+saga.init_lsp_saga()

@@ -10,6 +10,8 @@
     pkgs.lua
     pkgs.neovim
     pkgs.go
+    pkgs.unzip
+    pkgs.zig
   ];
 
   # This value determines the Home Manager release that your
