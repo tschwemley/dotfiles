@@ -7,9 +7,14 @@
   home.homeDirectory = "/home/tschwemley";
 
   home.packages = [
+    pkgs.hledger
+    pkgs.lazydocker
+    pkgs.lazygit
     pkgs.lua
     pkgs.neovim
+    pkgs.nodejs
     pkgs.go
+    pkgs.ripgrep
     pkgs.unzip
     pkgs.zig
   ];
