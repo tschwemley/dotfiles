@@ -5,17 +5,17 @@ neorg.setup {
     -- "Core" Modules
     ["core.defaults"] = {},
 
-    ["core.gtd.base"] = {
-      config = {
-        displayers = {
-          projects = {
-            show_projects_without_tasks = false,
-          },
-        },
-        workspace = "pkm",
-      },
-    },
-
+    -- ["core.gtd.base"] = {
+    --   config = {
+    --     displayers = {
+    --       projects = {
+    --         show_projects_without_tasks = false,
+    --       },
+    --     },
+    --     workspace = "pkm",
+    --   },
+    -- },
+    --
     ["core.integrations.telescope"] = {},
 
     ["core.keybinds"] = {},

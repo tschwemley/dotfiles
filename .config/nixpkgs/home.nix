@@ -11,10 +11,13 @@
     pkgs.lazydocker
     pkgs.lazygit
     pkgs.lua
+    pkgs.luakit
+    pkgs.navi
     pkgs.neovim
     pkgs.nodejs
     pkgs.go
     pkgs.ripgrep
+    pkgs.taskwarrior
     pkgs.unzip
     pkgs.zig
   ];
