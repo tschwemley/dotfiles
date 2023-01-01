@@ -6,6 +6,7 @@ wk.register {
   ["<leader>s"] = {
     name = "Search",
 
+    b = { ":Telescope buffers<CR>", "Search Buffers" },
     f = { ":Telescope find_files<CR>", "Search Files" },
     h = { ":Telescope help_tags<CR>", "Search Help" },
     k = { ":Telescope keymaps<CR>", "Search Keymaps" },

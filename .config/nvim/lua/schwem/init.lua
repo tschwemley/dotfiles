@@ -7,6 +7,6 @@ if PackerInstalled() then
   require("impatient")
 end
 
-require("schwem.set")
+require("schwem.opt")
 require("schwem.packer")
 require("schwem.autocmds")

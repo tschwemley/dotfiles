@@ -16,6 +16,9 @@ return require("packer").startup(function(use)
     use "sainnhe/gruvbox-material"
     use "glepnir/dashboard-nvim"
 
+    -- Colors
+    use "uga-rosa/ccc.nvim"
+
     -- Completion
     use "hrsh7th/nvim-cmp"
     use "hrsh7th/cmp-buffer"
@@ -103,16 +106,16 @@ return require("packer").startup(function(use)
         branch = "v2.2",
         requires = { "nvim-lua/plenary.nvim" },
     }
-    use {
-        "nvim-neorg/neorg",
-        after = { "nvim-treesitter", "telescope.nvim" },
-        requires = "nvim-neorg/neorg-telescope", -- Be sure to pull in the repo
-        -- run = ":Neorg sync-parsers",
-    }
-    use {
-        "max397574/neorg-kanban",
-        after = { "neorg" },
-    }
+    -- use {
+    --     "nvim-neorg/neorg",
+    --     after = { "nvim-treesitter", "telescope.nvim" },
+    --     requires = "nvim-neorg/neorg-telescope", -- Be sure to pull in the repo
+    --     -- run = ":Neorg sync-parsers",
+    -- }
+    -- use {
+    --     "max397574/neorg-kanban",
+    --     after = { "neorg" },
+    -- }
     use {
         "wthollingsworth/pomodoro.nvim",
         requires = "MunifTanjim/nui.nvim",
@@ -150,10 +153,12 @@ return require("packer").startup(function(use)
     }
     use "nvim-treesitter/nvim-treesitter-context"
     use "p00f/nvim-ts-rainbow"
+    use 'JoosepAlviste/nvim-ts-context-commentstring'
 
     -- Util
     use "folke/which-key.nvim"
     use { "jdhao/better-escape.vim", event = "InsertEnter" }
+    
     -- Folding
     use {
         "kevinhwang91/nvim-ufo",
