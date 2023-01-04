@@ -8,16 +8,21 @@
 
   home.packages = [
     pkgs.hledger
+    pkgs.go
     pkgs.lazydocker
     pkgs.lazygit
     pkgs.lua
     pkgs.luakit
+    pkgs.mariadb
     pkgs.navi
     pkgs.neovim
     pkgs.nodejs
-    pkgs.go
+    pkgs.python310Packages.pip
+    pkgs.python311
     pkgs.ripgrep
+    pkgs.rustc
     pkgs.taskwarrior
+    pkgs.thefuck
     pkgs.unzip
     pkgs.zig
   ];

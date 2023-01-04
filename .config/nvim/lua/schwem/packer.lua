@@ -27,6 +27,10 @@ return require("packer").startup(function(use)
     use "hrsh7th/cmp-path"
     use "rcarriga/cmp-dap"
 
+    -- Databases & Big Data
+    use "tpope/vim-dadbod"
+    use "kristijanhusak/vim-dadbod-ui"
+
     -- Debugging
     use "mfussenegger/nvim-dap"
     use "rcarriga/nvim-dap-ui"

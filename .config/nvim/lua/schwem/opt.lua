@@ -1,4 +1,3 @@
--- relativenumber is just better
 vim.opt.number = true
 vim.opt.relativenumber = true
 
@@ -9,7 +8,6 @@ vim.opt.errorbells = false
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
-vim.opt.expandtab = true
 vim.opt.smartindent = true
 
 vim.opt.wrap = false
@@ -43,5 +41,4 @@ vim.opt.shortmess:append("c")
 
 vim.opt.colorcolumn = "100"
 
--- dear leader
 vim.g.mapleader = " "
