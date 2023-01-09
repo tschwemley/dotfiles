@@ -1,5 +1,4 @@
 local lualine = require("lualine")
-local mind = require("mind")
 
 -- lualine.setup({
 --     -- Add pomodoro timer to lualine
@@ -9,4 +8,3 @@ local mind = require("mind")
 -- })
 
 lualine.setup()
-mind.setup()

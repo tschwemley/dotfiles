@@ -56,12 +56,12 @@ return require("packer").startup(function(use)
     use "lukas-reineke/indent-blankline.nvim"
 
     -- Lua
-    -- use {
-    --   "abecodes/tabout.nvim",
-    --   after = { "nvim-cmp" }, -- load after plugins that use tab
-    --   requires = { "nvim-treesitter" },
-    -- }
-    -- use("tpope/vim-sleuth")
+    use {
+      "abecodes/tabout.nvim",
+      after = { "nvim-cmp" }, -- load after plugins that use tab
+      requires = { "nvim-treesitter" },
+    }
+    use("tpope/vim-sleuth")
 
     -- Git
     use {
@@ -103,19 +103,12 @@ return require("packer").startup(function(use)
     }
 
     -- Notes
-    use { "ellisonleao/glow.nvim" }
-    -- TODO: decide if going to use mind.nvim
     use {
-        "phaazon/mind.nvim",
-        branch = "v2.2",
-        requires = { "nvim-lua/plenary.nvim" },
+        "nvim-neorg/neorg",
+        after = { "nvim-treesitter", "telescope.nvim" },
+        requires = "nvim-neorg/neorg-telescope", -- Be sure to pull in the repo
+        run = ":Neorg sync-parsers",
     }
-    -- use {
-    --     "nvim-neorg/neorg",
-    --     after = { "nvim-treesitter", "telescope.nvim" },
-    --     requires = "nvim-neorg/neorg-telescope", -- Be sure to pull in the repo
-    --     -- run = ":Neorg sync-parsers",
-    -- }
     -- use {
     --     "max397574/neorg-kanban",
     --     after = { "neorg" },
@@ -132,8 +125,6 @@ return require("packer").startup(function(use)
             }
         end,
     }
-    -- TODO: decide if going to use venn
-    use "jbyuki/venn.nvim"
 
     -- Snippets
     use { "L3MON4D3/LuaSnip", tag = "v1.*" }
@@ -142,7 +133,10 @@ return require("packer").startup(function(use)
     use {
         "nvim-telescope/telescope.nvim",
         tag = "0.1.*",
-        requires = { "nvim-lua/plenary.nvim" },
+        requires = {
+            "nvim-lua/plenary.nvim",
+            "MrcJkb/telescope-manix",
+        },
     }
 
     -- Terminal
@@ -162,7 +156,8 @@ return require("packer").startup(function(use)
     -- Util
     use "folke/which-key.nvim"
     use { "jdhao/better-escape.vim", event = "InsertEnter" }
-    
+	use "ledger/vim-ledger"
+
     -- Folding
     use {
         "kevinhwang91/nvim-ufo",

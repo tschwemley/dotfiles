@@ -1,13 +1,12 @@
-local telescope = require("telescope")
-local utils = require("telescope.utils")
+local telescope = require "telescope"
+local utils = require "telescope.utils"
 
-
-
-telescope.setup{
+telescope.setup {
   pickers = {
     find_files = {
-        cwd = utils.buffer_dir()
-    }
+      cwd = utils.buffer_dir(),
+    },
   },
 }
 
+telescope.load_extension "manix"
