@@ -61,7 +61,6 @@ return require("packer").startup(function(use)
       after = { "nvim-cmp" }, -- load after plugins that use tab
       requires = { "nvim-treesitter" },
     }
-    use("tpope/vim-sleuth")
 
     -- Git
     use {
