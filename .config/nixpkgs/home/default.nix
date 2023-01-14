@@ -6,7 +6,7 @@
   #
   # }
   imports = [ 
-    ./programs
+    ./modules
     ./users
   ];
 }
