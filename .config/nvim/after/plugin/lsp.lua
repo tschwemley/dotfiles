@@ -85,5 +85,4 @@ require("lspconfig").sumneko_lua.setup({
 })
 
 -- Setup lsp saga
-local saga = require("lspsaga")
-saga.init_lsp_saga()
+require("lspsaga").setup({})

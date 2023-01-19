@@ -1,7 +1,3 @@
-{ ... }:
-
-let
-  extraConfig = ''
 local wezterm = require 'wezterm'
 
 if wezterm.is_windows then
@@ -22,10 +18,3 @@ return {
   unix_domains = {
   },
 }
-  '';
-in
-{
-  programs.wezterm.enable = true;
-  programs.wezterm.extraConfig = extraConfig;
-}
-

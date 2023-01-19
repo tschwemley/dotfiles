@@ -8,17 +8,25 @@
   home.homeDirectory = "/home/tschwemley";
 
   home.packages = with pkgs; [
+    cargo
+    curl
+    gcc
     go
+    httpie
+    jq
     lazydocker
     lazygit
-    lua
+	lua51Packages.lua
+	lua51Packages.luarocks
     luakit
     manix
     mariadb
-    neovim
+    nb
+    # neovim
     nodejs
     ripgrep
     taskwarrior
+	tidyp
     unzip
   ];
 

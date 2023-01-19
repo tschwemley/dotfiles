@@ -8,6 +8,7 @@ let
     gcob = "git checkout -b";
     hm = "home-manager";
     hms = "home-manager switch";
+    hme = "nvim $HOME/.config/nixpkgs/home/users/$USER.nix";
     l = "ls -l";
     ll = "ls -al";
     lt = "ls --tree";
