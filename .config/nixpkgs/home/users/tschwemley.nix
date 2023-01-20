@@ -27,7 +27,9 @@
     ripgrep
     taskwarrior
 	tidyp
+	tldr
     unzip
+	zk
   ];
 
 # This value determines the Home Manager release that your

@@ -26,8 +26,9 @@ dapui.setup({
 
 dap.listeners.after.event_initialized["dapui_config"] = function()
     dapui.open(1)
+    dapui.open(2)
 end
-dap.listeners.before.event_terminated["dapui_config"] = function()
+dap.listeners.after.event_terminated["dapui_config"] = function()
     dapui.close()
 end
 dap.listeners.before.event_exited["dapui_config"] = function()
@@ -35,7 +36,7 @@ dap.listeners.before.event_exited["dapui_config"] = function()
 end
 
 -- Configure languages
-require("dap-go").setup()
+-- require("dap-go").setup()
 
 -- todo: make this more elegant
 dap.adapters.php = require("schwem.debuggers.php").adapters
