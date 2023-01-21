@@ -156,6 +156,11 @@ _G.packer_plugins = {
     path = "/home/tschwemley/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim",
     url = "https://github.com/lukas-reineke/indent-blankline.nvim"
   },
+  ["kanagawa.nvim"] = {
+    loaded = true,
+    path = "/home/tschwemley/.local/share/nvim/site/pack/packer/start/kanagawa.nvim",
+    url = "https://github.com/rebelot/kanagawa.nvim"
+  },
   ["leap.nvim"] = {
     loaded = true,
     path = "/home/tschwemley/.local/share/nvim/site/pack/packer/start/leap.nvim",
@@ -390,11 +395,11 @@ try_loadstring("\27LJ\2\n…\1\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\
 time([[Config for pomodoro.nvim]], false)
 -- Load plugins in order defined by `after`
 time([[Sequenced loading]], true)
+vim.cmd [[ packadd telescope.nvim ]]
 vim.cmd [[ packadd nvim-treesitter ]]
+vim.cmd [[ packadd neorg ]]
 vim.cmd [[ packadd nvim-cmp ]]
 vim.cmd [[ packadd tabout.nvim ]]
-vim.cmd [[ packadd telescope.nvim ]]
-vim.cmd [[ packadd neorg ]]
 time([[Sequenced loading]], false)
 vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]

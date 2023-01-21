@@ -14,6 +14,7 @@ return require("packer").startup(function(use)
 	-- Aesthetics
 	use "sainnhe/everforest"
 	use "sainnhe/gruvbox-material"
+	use "rebelot/kanagawa.nvim"
 	use "glepnir/dashboard-nvim"
 	use "shortcuts/no-neck-pain.nvim"
 
@@ -169,10 +170,6 @@ return require("packer").startup(function(use)
 	-- Util
 	use "folke/which-key.nvim"
 	use { "jdhao/better-escape.vim", event = "InsertEnter" }
-	use {
-		"folke/trouble.nvim",
-		requires = "nvim-tree/nvim-web-devicons",
-	}
 
 	-- TODO: organize
 	use "ledger/vim-ledger"
