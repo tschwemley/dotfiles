@@ -166,6 +166,11 @@ _G.packer_plugins = {
     path = "/home/tschwemley/.local/share/nvim/site/pack/packer/start/leap.nvim",
     url = "https://github.com/ggandor/leap.nvim"
   },
+  ["lsp_signature.nvim"] = {
+    loaded = true,
+    path = "/home/tschwemley/.local/share/nvim/site/pack/packer/start/lsp_signature.nvim",
+    url = "https://github.com/ray-x/lsp_signature.nvim"
+  },
   ["lspsaga.nvim"] = {
     loaded = true,
     path = "/home/tschwemley/.local/share/nvim/site/pack/packer/start/lspsaga.nvim",
@@ -309,7 +314,7 @@ _G.packer_plugins = {
     url = "https://github.com/nvim-lua/plenary.nvim"
   },
   ["pomodoro.nvim"] = {
-    config = { "\27LJ\2\n…\1\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\4\20time_break_long\3\30\21time_break_short\3\5\14time_work\3\30\25timers_to_long_break\3\4\nsetup\rpomodoro\frequire\0" },
+    config = { "\27LJ\2\n…\1\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\4\14time_work\3\30\25timers_to_long_break\3\4\20time_break_long\3\30\21time_break_short\3\5\nsetup\rpomodoro\frequire\0" },
     loaded = true,
     path = "/home/tschwemley/.local/share/nvim/site/pack/packer/start/pomodoro.nvim",
     url = "https://github.com/wthollingsworth/pomodoro.nvim"
@@ -328,6 +333,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/tschwemley/.local/share/nvim/site/pack/packer/start/rest.nvim",
     url = "https://github.com/rest-nvim/rest.nvim"
+  },
+  sonokai = {
+    loaded = true,
+    path = "/home/tschwemley/.local/share/nvim/site/pack/packer/start/sonokai",
+    url = "https://github.com/sainnhe/sonokai"
   },
   ["symbols-outline.nvim"] = {
     loaded = true,
@@ -391,15 +401,15 @@ _G.packer_plugins = {
 time([[Defining packer_plugins]], false)
 -- Config for: pomodoro.nvim
 time([[Config for pomodoro.nvim]], true)
-try_loadstring("\27LJ\2\n…\1\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\4\20time_break_long\3\30\21time_break_short\3\5\14time_work\3\30\25timers_to_long_break\3\4\nsetup\rpomodoro\frequire\0", "config", "pomodoro.nvim")
+try_loadstring("\27LJ\2\n…\1\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\4\14time_work\3\30\25timers_to_long_break\3\4\20time_break_long\3\30\21time_break_short\3\5\nsetup\rpomodoro\frequire\0", "config", "pomodoro.nvim")
 time([[Config for pomodoro.nvim]], false)
 -- Load plugins in order defined by `after`
 time([[Sequenced loading]], true)
+vim.cmd [[ packadd nvim-cmp ]]
+vim.cmd [[ packadd tabout.nvim ]]
 vim.cmd [[ packadd telescope.nvim ]]
 vim.cmd [[ packadd nvim-treesitter ]]
 vim.cmd [[ packadd neorg ]]
-vim.cmd [[ packadd nvim-cmp ]]
-vim.cmd [[ packadd tabout.nvim ]]
 time([[Sequenced loading]], false)
 vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]

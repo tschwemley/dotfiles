@@ -17,9 +17,13 @@ return require("packer").startup(function(use)
 	use "rebelot/kanagawa.nvim"
 	use "glepnir/dashboard-nvim"
 	use "shortcuts/no-neck-pain.nvim"
+	use "sainnhe/sonokai"
 
 	-- Colors
 	use "uga-rosa/ccc.nvim"
+
+	-- Code Navigation
+	use "ray-x/lsp_signature.nvim"
 
 	-- Completion
 	use "hrsh7th/nvim-cmp"
@@ -56,6 +60,7 @@ return require("packer").startup(function(use)
 
 	-- Editing
 	use { "kylechui/nvim-surround", tag = "*" }
+
 
 	-- Formatting
 	use "numtostr/comment.nvim"
