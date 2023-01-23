@@ -23,6 +23,7 @@
     mariadb
     nb
     # neovim
+    nnn
     nodejs
     ripgrep
     taskwarrior
