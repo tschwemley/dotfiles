@@ -5,8 +5,10 @@ wk.register({
         name = "Debug",
 
         c = { ":DapContinue<cr>", "Continue" },
-        i = { ":DapInto<cr>", "Step Into" },
-        o = { ":DapOver<cr>", "Step Over" },
+		i = { ":DapStepInto<cr>", "Step Into" },
+		o = { ":DapStepOver<cr>", "Step Over" },
+		O = { ":DapStepOut<cr>", "Step Out" },
         t = { ":DapToggleBreakpoint<cr>", "Toggle Breakpoint" },
+		u = { ":lua require('dapui').toggle()<cr>", "Toggle DAP UI" },
     }
 })
