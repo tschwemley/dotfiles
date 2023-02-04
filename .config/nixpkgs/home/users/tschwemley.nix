@@ -8,11 +8,13 @@
   home.homeDirectory = "/home/tschwemley";
 
   home.packages = with pkgs; [
+	bat
     cargo
     curl
     gcc
     go
     httpie
+	fortune
     jq
     lazydocker
     lazygit

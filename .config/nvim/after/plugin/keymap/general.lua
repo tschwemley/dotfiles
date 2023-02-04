@@ -7,8 +7,6 @@ km.nnoremap("<leader>c",  ":bd<CR>")
 -- todo: better organize
 km.nnoremap("<leader>w", ":w!<CR>")
 
-km.nnoremap("<leader>e", ":NvimTreeToggle<CR>")
-
 -- Toggle current line or with count
 km.nnoremap("<leader>/", function()
     return vim.v.count == 0
