@@ -11,28 +11,19 @@
 	bat
     cargo
     curl
-    gcc
-    go
-    httpie
-	fortune
+    htop
     jq
-    lazydocker
     lazygit
 	lua51Packages.lua
 	lua51Packages.luarocks
-    luakit
     manix
-    mariadb
-    nb
     # neovim
     nnn
     nodejs
     ripgrep
-    taskwarrior
 	tidyp
-	tldr
+	tealdeer
     unzip
-	zk
   ];
 
 # This value determines the Home Manager release that your
